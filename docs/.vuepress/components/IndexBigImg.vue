@@ -163,20 +163,6 @@ export default {
     // 字体淡入淡出
     textFadeInAndOut(desc, descFontSize, descFadeInTime, descFadeOutTime, descNextTime) {
       let descElement = document.getElementsByClassName('description')[0]
-      let desc1 = document.getElementsByClassName('description')
-      console.log(desc1)
-      /**
-       * {}
-       */
-      console.log(desc)
-      /**
-       * [
-          "Dafny -- New Verification Langugage",
-          "Welcome to our Dafny community",
-          "Hello,explorer!"
-         ]
-       */
-      console.log('des:   ' + descElement) //undefined
 
       descElement.style.fontSize = descFontSize
       if (descElement) {

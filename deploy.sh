@@ -9,35 +9,21 @@ npm run build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# deploy to github pages
-echo 'b.xugaoyi.com' > CNAME
-
+# 如果手运行该脚本，则执行if里的，如果是GitHub自动执行该脚本，则是else里的
 if [ -z "$GITHUB_TOKEN" ]; then
-  msg='deploy'
-  githubUrl=git@github.com:xugaoyi/vuepress-theme-vdoing.git
+ msg='deploy'
+ githubUrl=git@github.com:Kele-Bingtang/notes-blog.git  # 替换自己的 GitHub 仓库地址，SSH格式
 else
-  msg='来自github actions的自动部署'
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/vuepress-theme-vdoing.git
-  git config --global user.name "xugaoyi"
-  git config --global user.email "894072666@qq.com"
+ msg='来自github actions的自动部署'
+ # 替换自己的 GitHub 仓库地址，更改的是 @后面的地址 以及 把Kele-Bingtang 改为自己用户名
+ githubUrl=https://Aaron-clou:${GITHUB_TOKEN}@github.com/Aaron-clou/dafnycommunity.git
+ git config --global user.name "aaron-clou"   # 修改为自己的 GitHub 用户名
+ git config --global user.email "1374921025@qq.com"  # 修改为自己的 GitHub 邮箱，注册时绑定的邮箱
 fi
 git init
 git add -A
 git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github gh-pages分支
 
-# deploy to coding pages
-# echo 'www.xugaoyi.com\nxugaoyi.com' > CNAME  # 自定义域名
-# echo 'google.com, pub-7828333725993554, DIRECT, f08c47fec0942fa0' > ads.txt # 谷歌广告相关文件
-
-# if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
-#   codingUrl=git@e.coding.net:xgy/xgy.git
-# else
-#   codingUrl=https://HmuzsGrGQX:${CODING_TOKEN}@e.coding.net/xgy/xgy.git
-# fi
-# git add -A
-# git commit -m "${msg}"
-# git push -f $codingUrl master # 推送到coding
-
-cd -
+cd - # 退回开始所在目录
 rm -rf docs/.vuepress/dist
