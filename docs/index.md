@@ -11,15 +11,15 @@ pageClass: vdoing-index-class
 
 features: # 可选的
   - title: 入门
-    details: JavaScript、ES6、Vue框架等前端技术
+    details: Dafny入门资料，快速上手！🧸
     link: /peizhi/ # 可选
     imgUrl: /img/web.png # 可选
   - title: 进阶
-    details: html(5)/css(3)，前端页面相关技术
+    details: 进一步成为Dafny高阶玩家把吧~😄
     link: /zhinan/
     imgUrl: /img/ui.png
-  - title: 其它
-    details: 技术文档、教程、技巧、总结等文章
+  - title: 资源
+    details: 中文社区服务，集中学习资源📖
     link: /ziyuan/
     imgUrl: /img/other.png
     

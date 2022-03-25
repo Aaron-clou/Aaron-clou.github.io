@@ -292,7 +292,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           }
         ]
       },
-      { text: '收藏', link: '/shoucang/' },
+      { text: '收藏', link: '/pages/1b94a4/' },
       { text: '支持', link: '/zhichi/', items: [{ text: '推荐企业', link: '/pages/30bf81/' }] },
       { text: 'tips', link: '/tips/' },
       {
