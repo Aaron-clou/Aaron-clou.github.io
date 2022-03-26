@@ -135,7 +135,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // 监听文件变化并重新构建
   extraWatchFiles: ['.vuepress/config.ts', '.vuepress/config/htmlModules.ts'],
   themeConfig: {
-    bodyBgImg: '/img/bg11.jpg', // 你的图片路径(必须位于 public 下)，可以是 URL
+    bodyBgImg: 'https://s1.ax1x.com/2022/03/26/qwAlKP.png', // 你的图片路径(必须位于 public 下)，可以是 URL
     bodyBgImgOpacity: 0.8, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
 
     // 导航配置
