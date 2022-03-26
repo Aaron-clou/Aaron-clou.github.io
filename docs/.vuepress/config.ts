@@ -342,7 +342,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       bgTimeColor: true, // 是否开启图片的背景色随一天的不同时间而变化，并且启时间窗口提示，默认是 false。时间分为四种：白天（原图）、黄昏（偏黄）、晚上（偏黑）、深夜（偏深黑）
       bgTimeColorArray: ['rgba(0, 0, 0, .3)', 'rgba(0, 0, 0, .3)', 'rgba(0, 0, 0, .3)', 'rgba(0, 0, 0, .3)'], // 第一个是白天的颜色（默认原图），第二个是黄昏的颜色，第三个是晚上的颜色，第四个是深夜的颜色。bgTimeColor 为 true 生效。提示：如果不想要这个效果，但是又想要时间窗口提示效果，则改为 ['transparent', 'transparent', 'transparent', 'transparent']
       descFade: true, // 是否开启图片中间描述的淡入效果，默认为 false
-      desc: ['Dafny -- New Verification Langugage', 'Welcome to our Dafny community', 'Hello,explorer!'], // 多个描述，如果填写则覆盖 config.js 的 description，不填写默认读取 config.js 的 description，descFadeIn 为 true 生效
+      desc: ['Dafny -- New Verification Language', 'Welcome to our Dafny community', 'Hello,explorer!'], // 多个描述，如果填写则覆盖 config.js 的 description，不填写默认读取 config.js 的 description，descFadeIn 为 true 生效
       descFontSize: '1.5rem', // desc 的字体大小，默认 1.4rem。提示：原主题是 1.1rem
       descFadeInTime: 200, // 描述的淡入效果持续时间，descFade 为 true 生效，默认 200 毫秒
       descFadeOutTime: false, // 描述的淡出效果持续时间，descFade 为 rtue 生效，默认 100 毫秒
