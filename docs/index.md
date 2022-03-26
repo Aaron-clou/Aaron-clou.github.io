@@ -15,7 +15,7 @@ features: # 可选的
     link: /peizhi/ # 可选
     imgUrl: /img/web.png # 可选
   - title: 进阶
-    details: 进一步成为Dafny高阶玩家把吧~😄
+    details: 进一步成为Dafny高阶玩家吧~😄
     link: /zhinan/
     imgUrl: /img/ui.png
   - title: 资源

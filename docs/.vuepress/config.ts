@@ -135,13 +135,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // 监听文件变化并重新构建
   extraWatchFiles: ['.vuepress/config.ts', '.vuepress/config/htmlModules.ts'],
   themeConfig: {
-    bodyBgImg: 'https://s1.ax1x.com/2022/03/24/q8PR5F.jpg', // 你的图片路径(必须位于 public 下)，可以是 URL
-    bodyBgImgOpacity: 1, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
+    bodyBgImg: '/dafnyimg/bg11.png', // 你的图片路径(必须位于 public 下)，可以是 URL
+    bodyBgImgOpacity: 0.8, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
 
     // 导航配置
 
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    logo: '/img/logo.png', // 导航栏logo
+    logo: '/dafnyimg/dafnylogo.png', // 导航栏logo
     repo: 'aaron-clou/dafnycommunity', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -221,14 +221,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: 'Dafny快速入门',
             items: [
-              { text: '基础学习 Basic', link: '' },
-              { text: '方法 Method', link: '' },
-              { text: '关键字 Keyword', link: '' },
-              { text: '函数 Function', link: '' },
-              { text: '类 Class ', link: '' },
-              { text: '泛型 Generics', link: '' },
-              { text: '声明 Statement', link: '' },
-              { text: '表达式 Expression', link: '' }
+              { text: '基础学习 Basic', link: '/pages/6e15a6/' },
+              { text: '方法 Method', link: '/pages/eba166/' },
+              { text: '关键字 Keyword', link: '/pages/83cdf9/' },
+              { text: '函数 Function', link: '/pages/01d76e/' },
+              { text: '类 Class ', link: '/pages/0fadc1/' },
+              { text: '泛型 Generics', link: '/pages/a010ab/' },
+              { text: '声明 Statement', link: '/pages/c4fda3/' },
+              { text: '表达式 Expression', link: '/pages/e8438e/' }
             ]
           }, //quick-reference
           {
@@ -266,12 +266,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: 'Dafny进阶语法',
             items: [
-              { text: 'Lemmas and Induction', link: '' },
-              { text: 'Modules', link: '' },
-              { text: 'sequence', link: '' },
-              { text: 'sets', link: '' },
-              { text: 'Terminal', link: '' },
-              { text: 'Values Types', link: '' }
+              { text: '引理和归纳 Lemmas and Induction', link: '/pages/273cac/' },
+              { text: '模块 Modules', link: '/pages/9d19b8/' },
+              { text: '集合 sets', link: '/pages/b9300a/' },
+              { text: '序列 sequence', link: '/pages/cb3d21/' },
+              { text: '终止 Terminal', link: '/pages/fc6196/' },
+              { text: '值类型 Values Types', link: '/pages/a2a107/' }
             ]
           }
         ]
@@ -295,29 +295,27 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: '常用工具',
             items: [
-              { text: 'Style Guide', link: '' },
-              { text: 'Type System', link: '' },
-              { text: 'cheet sheet', link: '' }
+              { text: 'Type System', link: '/pages/8065fd/' },
+              { text: 'Style Guide', link: '/pages/0f17ab/' },
+              { text: 'Cheet Sheet', link: '/pages/fe5721/' }
             ]
           }
         ]
       },
 
-      { text: '收藏', link: '/pages/1b94a4/' },
-      { text: '支持', link: '/zhichi/', items: [{ text: '推荐企业', link: '/pages/30bf81/' }] },
-      { text: 'tips', link: '/tips/' },
+      { text: '✨收藏', link: '/pages/1b94a4/' },
+
       {
-        text: '语言',
+        text: '🏷️语言',
         link: '',
         items: [
           { text: '简体中文', link: '/' },
           { text: 'English', link: '/en-US/' }
         ]
       },
-      { text: '更多', link: '/more/' },
 
       {
-        text: '社区留言板',
+        text: '💬社区留言板',
         link: '/pages/caf1f9/'
       }
     ],
