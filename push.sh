@@ -8,7 +8,7 @@ comment=$1
 
 if [ ! $comment ]; 
 then
-comment="更新内容+action自动部署"
+comment="111更新内容+action自动部署"
 fi
 
 git add -A
