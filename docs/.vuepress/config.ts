@@ -135,13 +135,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // 监听文件变化并重新构建
   extraWatchFiles: ['.vuepress/config.ts', '.vuepress/config/htmlModules.ts'],
   themeConfig: {
-    bodyBgImg: '/img/dafnyimg/bg11.png', // 你的图片路径(必须位于 public 下)，可以是 URL
+    bodyBgImg: '/img/bg11.png', // 你的图片路径(必须位于 public 下)，可以是 URL
     bodyBgImgOpacity: 0.8, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
 
     // 导航配置
 
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    logo: '/img/dafnyimg/dafnylogo.png', // 导航栏logo
+    logo: '/img/dafnylogo.png', // 导航栏logo
     repo: 'aaron-clou/dafnycommunity', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
