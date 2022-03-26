@@ -17,7 +17,7 @@ else
  msg='来自github actions的自动部署'
  # 替换自己的 GitHub 仓库地址，更改的是 @后面的地址 以及 把Kele-Bingtang 改为自己用户名
  githubUrl=https://Aaron-clou:${GITHUB_TOKEN}@github.com/Aaron-clou/dafnycommunity.git
- git config --global user.name "aaron-clou"   # 修改为自己的 GitHub 用户名
+ git config --global user.name "Aaron-clou"   # 修改为自己的 GitHub 用户名
  git config --global user.email "1374921025@qq.com"  # 修改为自己的 GitHub 邮箱，注册时绑定的邮箱
 fi
 git init
