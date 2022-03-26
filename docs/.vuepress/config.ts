@@ -201,18 +201,15 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: '入门介绍',
             link: '',
-            items: [
-              { text: '什么是dafny?', link: '' },
-              { text: '项目进展', link: '' }
-            ]
+            items: [{ text: '什么是dafny?', link: '/pages/56e571/' }]
           },
           {
             text: '用起来吧！',
             link: '',
             items: [
-              { text: '安装', link: '' },
-              { text: '快速上手', link: '' },
-              { text: '可能遇到的问题?', link: '' }
+              { text: '安装', link: '/pages/4fa796/' },
+              { text: '快速上手', link: '/pages/085606/' },
+              { text: '可能遇到的问题?', link: '/pages/39fb20/' }
             ]
           }
         ]
@@ -224,9 +221,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: 'Dafny快速入门',
             items: [
-              { text: '语言定义 Defination', link: '' },
-              { text: '关键字 Keyword', link: '' },
+              { text: '基础学习 Basic', link: '' },
               { text: '方法 Method', link: '' },
+              { text: '关键字 Keyword', link: '' },
+              { text: '函数 Function', link: '' },
               { text: '类 Class ', link: '' },
               { text: '泛型 Generics', link: '' },
               { text: '声明 Statement', link: '' },
@@ -251,18 +249,18 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             text: 'Dafny指导',
             items: [
-              { text: '介绍', link: '' },
-              { text: '方法 Methods', link: '' },
-              { text: '前置/后置条件 Pre/Postconditions', link: '' },
-              { text: '断言 Assertions', link: '' },
-              { text: '函数 Functions', link: '' },
-              { text: '循环不变体 Loop Invariants', link: '' },
-              { text: '数组 Arrays', link: '' },
-              { text: '量词(函数) Quantifiers', link: '' },
-              { text: '谓词(函数) Predicates', link: '' },
-              { text: '框架 Framing', link: '' },
-              { text: '二分搜索 Binary Search', link: '' },
-              { text: '总结', link: '' }
+              { text: '介绍', link: '/pages/877eb3/' },
+              { text: '方法 Methods', link: '/pages/bf40c0/' },
+              { text: '前置/后置条件 Pre/Postconditions', link: '/pages/2e0c73/' },
+              { text: '断言 Assertions', link: '/pages/36c1b4/' },
+              { text: '函数 Functions', link: '/pages/a1d5a4/' },
+              { text: '循环不变体 Loop Invariants', link: '/pages/d89435/' },
+              { text: '数组 Arrays', link: '/pages/828a83/' },
+              { text: '量词(函数) Quantifiers', link: '/pages/17e8d1/' },
+              { text: '谓词(函数) Predicates', link: '/pages/cc01af/' },
+              { text: '框架 Framing', link: '/pages/13bbcd/' },
+              { text: '二分搜索 Binary Search', link: '/pages/1319be/' },
+              { text: '总结', link: '/pages/30a8c2/' }
             ]
           },
           {
@@ -283,7 +281,19 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/ziyuan/',
         items: [
           {
-            text: '用户',
+            text: '实践探索',
+            items: [
+              { text: '自动归纳', link: '/pages/718207/' },
+              { text: '自动调用引理', link: '/pages/1f579f/' },
+              { text: '定义、证明、算法正确性', link: '/pages/f6638c/' },
+              { text: '各种推导式', link: '/pages/1d2420/' },
+              { text: '不同类型的证明', link: '/pages/20c275/' },
+              { text: '集合元素上的函数', link: '/pages/67167e/' },
+              { text: '在集合上的迭代', link: '/pages/be298d/' }
+            ]
+          },
+          {
+            text: '常用工具',
             items: [
               { text: 'Style Guide', link: '' },
               { text: 'Type System', link: '' },
@@ -292,6 +302,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           }
         ]
       },
+
       { text: '收藏', link: '/pages/1b94a4/' },
       { text: '支持', link: '/zhichi/', items: [{ text: '推荐企业', link: '/pages/30bf81/' }] },
       { text: 'tips', link: '/tips/' },
@@ -300,7 +311,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '',
         items: [
           { text: '简体中文', link: '/' },
-          { text: 'Engilsh-Us', link: '/en/' }
+          { text: 'English', link: '/en-US/' }
         ]
       },
       { text: '更多', link: '/more/' },
