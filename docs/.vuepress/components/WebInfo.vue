@@ -1,24 +1,23 @@
 <template>
-  <!-- Young Kbt -->
   <div class="web-info card-box">
     <div class="webinfo-title">
       <i class="iconfont icon-award" style="font-size: 0.875rem; font-weight: 900; width: 1.25em"></i>
       <span>站点信息</span>
     </div>
     <div class="webinfo-item">
-      <div class="webinfo-item-title">文章数目：</div>
+      <div class="webinfo-item-title">文章：</div>
       <div class="webinfo-content">{{ mdFileCount }} 篇</div>
     </div>
 
     <div class="webinfo-item">
-      <div class="webinfo-item-title">已运行时间：</div>
+      <div class="webinfo-item-title">运行时间：</div>
       <div class="webinfo-content">
         {{ createToNowDay != 0 ? createToNowDay + ' 天' : '不到一天' }}
       </div>
     </div>
 
     <div class="webinfo-item">
-      <div class="webinfo-item-title">本站总字数：</div>
+      <div class="webinfo-item-title">总字数：</div>
       <div class="webinfo-content">{{ totalWords }} 字</div>
     </div>
 
@@ -49,11 +48,10 @@
 
 <script>
 import { dayDiff, timeDiff, lastUpdatePosts } from '../webSiteInfo/utils'
-let busuanzi // 统计量
+let busuanzi
 export default {
   data() {
     return {
-      // Young Kbt
       mdFileCount: 0, // markdown 文档总数
       createToNowDay: 0, // 博客创建时间距今多少天
       lastActiveDate: '', // 最后活动时间
@@ -67,7 +65,6 @@ export default {
     }
   },
   mounted() {
-    // Young Kbt
     if (Object.keys(this.$themeConfig.blogInfo).length > 0) {
       const { blogCreate, mdFileCountType, totalWords, moutedEvent, eachFileWords, indexIteration, indexView } = this.$themeConfig.blogInfo
       this.createToNowDay = dayDiff(blogCreate)
@@ -89,14 +86,14 @@ export default {
         this.totalWords = Math.round(archivesWords / 100) / 10 + 'k'
       } else if (totalWords == 'archives') {
         this.totalWords = 0
-        console.log('如果 totalWords 使用 archives，必须传入 eachFileWords，显然您并没有传入！')
+        console.log('如果 totalWords 使用 archives，必须传入 eachFileWords，你并没有传入！')
       } else {
         this.totalWords = totalWords
       }
-      // 最后一次活动时间
+
       this.lastActiveDate = timeDiff(this.$lastUpdatePosts[0].lastUpdated)
       this.mountedWebInfo(moutedEvent)
-      // 获取访问量和排名
+
       this.indexView = indexView == undefined ? true : indexView
       if (this.indexView) {
         this.getIndexViewCouter(indexIteration)
@@ -104,9 +101,6 @@ export default {
     }
   },
   methods: {
-    /**
-     * 挂载站点信息模块
-     */
     mountedWebInfo(moutedEvent = '.tags-wrapper') {
       let interval = setInterval(() => {
         const tagsWrapper = document.querySelector(moutedEvent)
@@ -119,9 +113,7 @@ export default {
         }
       }, 200)
     },
-    /**
-     * 挂载在兄弟元素后面，说明当前组件是 siblingNode 变量
-     */
+
     isSiblilngNode(element, siblingNode) {
       if (element.siblingNode == siblingNode) {
         return true
@@ -129,9 +121,7 @@ export default {
         return false
       }
     },
-    /**
-     * 首页的统计量
-     */
+
     getIndexViewCouter(iterationTime = 3000) {
       if (busuanzi) {
         busuanzi.fetch()
@@ -140,9 +130,6 @@ export default {
       }
       var i = 0
       var defaultCouter = '9999'
-      // 如果 require 没有获取成功，则手动获取
-      // 但是容易产生访问量叠加，如果只需要第一次获取数据（可能获取失败），可注释掉，此内容是第一次获取失败后，重新获取访问量，可能导致访问量再次 + 1
-      // 取决于访问人的网络，以及 setTimeout 的时间（需求调节）
       setTimeout(() => {
         let interval = setInterval(() => {
           const indexUv = document.querySelector('.web-site-pv')
@@ -152,10 +139,9 @@ export default {
             if (i > iterationTime * 10) {
               indexPv.innerText = defaultCouter
               indexUv.innerText = defaultCouter
-              clearInterval(interval) // 10 秒后无法获取，则取消获取
+              clearInterval(interval)
             }
             if (indexPv.innerText == '' && indexUv.innerText == '') {
-              // 手动获取访问量
               busuanzi.fetch()
             } else {
               clearInterval(interval)
