@@ -27,7 +27,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
    * { head : 注入到html文件head标签中，引用静态资源 }
    */
   head: [
-    ['link', { rel: 'icon', href: '/img/logo-2.png' }],
+    ['link', { rel: 'icon', href: '/img/bgico2.ico' }],
     ['meta', { name: 'theme-color', content: '#11a8cd' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
