@@ -47,7 +47,7 @@ export default {
     twikooInit() {
       twikoo
         .init({
-          envId: 'https://twikoo-snowy-rho.vercel.app/',
+          envId: 'https://twikoo-repo.vercel.app/',
           el: '#tcomment',
 
           onCommentLoaded: function () {

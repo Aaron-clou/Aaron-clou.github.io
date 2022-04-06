@@ -30,7 +30,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     ['link', { rel: 'icon', href: '/img/bgico2.ico' }],
     ['meta', { name: 'theme-color', content: '#11a8cd' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
-    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
+    // ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3282046_1qux519eoim.css' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/twikoo@1.5.0/dist/twikoo.all.min.js' }]
   ],
 
@@ -205,9 +206,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
             text: 'Dafny简单例子',
             link: '',
             items: [
-              { text: 'hello,dafny', link: '' },
-              { text: '斐波那契数列', link: '' },
-              { text: '111', link: '' }
+              { text: '寻找最大最小数和', link: '/pages/0978ce/' },
+              { text: '斐波那契数列', link: '/pages/e3e481/' },
+              { text: '线性查询', link: '/pages/02fdef/' },
+              { text: '引理-计算序列非负元素个数', link: '/pages/9b332b/' },
+              { text: '集合', link: '/pages/3d1110/' },
+              { text: '终止', link: '/pages/2146d4/' }
             ]
           }
         ]

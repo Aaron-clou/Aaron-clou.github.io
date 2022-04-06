@@ -9,7 +9,6 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.log('11')
       setTimeout(() => {
         this.addExpand(40)
       }, 1000)
@@ -36,18 +35,18 @@ export default {
           let wrapper = item.getElementsByClassName('line-numbers-wrapper')[0]
 
           const div = document.createElement('div')
-          div.className = 'expand icon-xiangxiajiantou iconfont'
+          div.className = 'expand icon-xia iconfont'
 
           div.onclick = () => {
             if (parseInt(item.style.height) == hiddenHeight) {
-              div.className = 'expand icon-xiangxiajiantou iconfont'
+              div.className = 'expand icon-xia iconfont'
               item.style.height = modeHeight + 'px'
               setTimeout(() => {
                 pre.style.display = 'block'
                 wrapper.style.display = 'block'
               }, 80)
             } else {
-              div.className = 'expand icon-xiangxiajiantou iconfont closed'
+              div.className = 'expand icon-xia iconfont closed'
               item.style.height = hiddenHeight + 'px'
               setTimeout(() => {
                 pre.style.display = 'none'
@@ -195,7 +194,7 @@ div[class*='language-'].line-numbers-mode::after {
 }
 
 .theme-mode-light .expand {
-  color: #666;
+  color: rgb(233, 220, 220);
 }
 .theme-mode-light div[class*='language-']::before {
   color: #666;

@@ -352,7 +352,7 @@ function nextAllTipElement(elem) {
 </script>
 
 <style>
-.vdoing-index-class .home-wrapper .banner {
+.dafny-index-class .home-wrapper .banner {
   margin-top: 0 !important;
   height: 100vh;
   background-attachment: fixed !important;
@@ -362,24 +362,24 @@ function nextAllTipElement(elem) {
   margin-top: 23vh !important;
 }
 
-.vdoing-index-class .navbar1 {
+.dafny-index-class .navbar1 {
   background-color: transparent;
   box-shadow: none;
   backdrop-filter: none;
 }
-.vdoing-index-class .nav-links1 > .nav-item > a,
-.vdoing-index-class .nav-links1 > a,
-.vdoing-index-class .nav-links1 .dropdown-title a:hover,
-.vdoing-index-class .nav-links1 .title,
-.vdoing-index-class .nav-links1 .dropdown-title > .link-title,
-.vdoing-index-class .site-name1 {
+.dafny-index-class .nav-links1 > .nav-item > a,
+.dafny-index-class .nav-links1 > a,
+.dafny-index-class .nav-links1 .dropdown-title a:hover,
+.dafny-index-class .nav-links1 .title,
+.dafny-index-class .nav-links1 .dropdown-title > .link-title,
+.dafny-index-class .site-name1 {
   color: #fff !important;
 }
 
-.vdoing-index-class .footer {
+.dafny-index-class .footer {
   color: #fff;
 }
-.vdoing-index-class .search-box1 input {
+.dafny-index-class .search-box1 input {
   border-color: #fff;
   color: #fff;
 }
@@ -441,15 +441,15 @@ function nextAllTipElement(elem) {
   bottom: 25px;
   left: 668px;
 }
-/* 描述淡入淡出元素 */
+
 .description {
   display: inline-block;
 }
 .typed {
   opacity: 1;
 }
-/* 随时间变化的背景色元素 */
-.vdoing-index-class .banner-color {
+
+.dafny-index-class .banner-color {
   width: 100%;
   min-height: 450px;
   overflow: hidden;
@@ -458,16 +458,16 @@ function nextAllTipElement(elem) {
   position: absolute;
   top: 0;
 }
-/* 气泡效果的画布元素 */
+
 #canvas {
   position: absolute;
   top: 0;
 }
-/* 切换第二页，继续打开 banner */
+
 .hide-banner {
   display: block !important;
 }
-/* 提示框元素 */
+
 .index-tip {
   position: fixed;
   display: flex;
