@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>引理和归纳 | Dafny</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/dafnycommunity/img/bgico2.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3282046_1qux519eoim.css">
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.5.0/dist/twikoo.all.min.js"></script>
+    <meta name="description" content="Dafny中文社区">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css" as="style"><link rel="preload" href="/dafnycommunity/assets/js/app.99d07194.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/2.ab4658c0.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/50.060e0424.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/7.5451cfed.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/4.06497870.js" as="script"><link rel="prefetch" href="/dafnycommunity/assets/js/10.ac38cab7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/11.38d5ee16.js"><link rel="prefetch" href="/dafnycommunity/assets/js/12.c434ce94.js"><link rel="prefetch" href="/dafnycommunity/assets/js/13.4e922264.js"><link rel="prefetch" href="/dafnycommunity/assets/js/14.db841cfa.js"><link rel="prefetch" href="/dafnycommunity/assets/js/15.b9c227cc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/16.41dadc32.js"><link rel="prefetch" href="/dafnycommunity/assets/js/17.48b5f1eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/18.ec254833.js"><link rel="prefetch" href="/dafnycommunity/assets/js/19.288ca382.js"><link rel="prefetch" href="/dafnycommunity/assets/js/20.cfeb5fdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/21.ce8ddc5a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/22.1b8c89f0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/23.cb062ace.js"><link rel="prefetch" href="/dafnycommunity/assets/js/24.ff271672.js"><link rel="prefetch" href="/dafnycommunity/assets/js/25.5541f3af.js"><link rel="prefetch" href="/dafnycommunity/assets/js/26.a1bbc4cb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/27.522d7884.js"><link rel="prefetch" href="/dafnycommunity/assets/js/28.9335c003.js"><link rel="prefetch" href="/dafnycommunity/assets/js/29.3fc0b07a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/3.ab8a97d8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/30.57708681.js"><link rel="prefetch" href="/dafnycommunity/assets/js/31.8571b949.js"><link rel="prefetch" href="/dafnycommunity/assets/js/32.f91be5de.js"><link rel="prefetch" href="/dafnycommunity/assets/js/33.8089c59b.js"><link rel="prefetch" href="/dafnycommunity/assets/js/34.874d0299.js"><link rel="prefetch" href="/dafnycommunity/assets/js/35.aff8adfd.js"><link rel="prefetch" href="/dafnycommunity/assets/js/36.ac78b86e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/37.3fae0334.js"><link rel="prefetch" href="/dafnycommunity/assets/js/38.3db4a8d6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/39.e585cc70.js"><link rel="prefetch" href="/dafnycommunity/assets/js/40.afcb8fbe.js"><link rel="prefetch" href="/dafnycommunity/assets/js/41.01f314da.js"><link rel="prefetch" href="/dafnycommunity/assets/js/42.8e4fe21d.js"><link rel="prefetch" href="/dafnycommunity/assets/js/43.571fb232.js"><link rel="prefetch" href="/dafnycommunity/assets/js/44.14aebad2.js"><link rel="prefetch" href="/dafnycommunity/assets/js/45.32f18970.js"><link rel="prefetch" href="/dafnycommunity/assets/js/46.ce0d522f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/47.0bd83351.js"><link rel="prefetch" href="/dafnycommunity/assets/js/48.648f667a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/49.83709ae0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/5.b8548e7f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/51.a1291856.js"><link rel="prefetch" href="/dafnycommunity/assets/js/52.45f73497.js"><link rel="prefetch" href="/dafnycommunity/assets/js/53.525782ca.js"><link rel="prefetch" href="/dafnycommunity/assets/js/54.45a04a86.js"><link rel="prefetch" href="/dafnycommunity/assets/js/55.65a94ba0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/56.2d038113.js"><link rel="prefetch" href="/dafnycommunity/assets/js/57.579db650.js"><link rel="prefetch" href="/dafnycommunity/assets/js/58.832d4c89.js"><link rel="prefetch" href="/dafnycommunity/assets/js/59.13befb53.js"><link rel="prefetch" href="/dafnycommunity/assets/js/6.349bf431.js"><link rel="prefetch" href="/dafnycommunity/assets/js/60.41227bb1.js"><link rel="prefetch" href="/dafnycommunity/assets/js/61.1d1b92f4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/62.2cdbc236.js"><link rel="prefetch" href="/dafnycommunity/assets/js/63.83de9482.js"><link rel="prefetch" href="/dafnycommunity/assets/js/64.4ecd0d25.js"><link rel="prefetch" href="/dafnycommunity/assets/js/65.25118b81.js"><link rel="prefetch" href="/dafnycommunity/assets/js/66.cdab1b54.js"><link rel="prefetch" href="/dafnycommunity/assets/js/67.655e6e84.js"><link rel="prefetch" href="/dafnycommunity/assets/js/68.84effb44.js"><link rel="prefetch" href="/dafnycommunity/assets/js/69.8f07f81a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/70.d9a299e6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/71.16ef2000.js"><link rel="prefetch" href="/dafnycommunity/assets/js/72.8252acc5.js"><link rel="prefetch" href="/dafnycommunity/assets/js/73.f53e39bc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/74.5ef910c4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/75.72174d00.js"><link rel="prefetch" href="/dafnycommunity/assets/js/76.bebf75c9.js"><link rel="prefetch" href="/dafnycommunity/assets/js/77.b85547c7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/78.a0a1f574.js"><link rel="prefetch" href="/dafnycommunity/assets/js/79.a731d645.js"><link rel="prefetch" href="/dafnycommunity/assets/js/8.522ce892.js"><link rel="prefetch" href="/dafnycommunity/assets/js/80.6e5b64b0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/81.6e19e312.js"><link rel="prefetch" href="/dafnycommunity/assets/js/82.9244e788.js"><link rel="prefetch" href="/dafnycommunity/assets/js/83.f08c5aed.js"><link rel="prefetch" href="/dafnycommunity/assets/js/84.085ef3f8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/85.c41e6e0e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/86.e3798708.js"><link rel="prefetch" href="/dafnycommunity/assets/js/87.fdac1c1c.js"><link rel="prefetch" href="/dafnycommunity/assets/js/88.665ac8c8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/89.78dc55eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/9.4d4f4bdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/90.4757b202.js"><link rel="prefetch" href="/dafnycommunity/assets/js/91.a0746cf2.js">
+    <link rel="stylesheet" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dafnycommunity/" class="home-link router-link-active"><img src="/dafnycommunity/img/logo-2.png" alt="Dafny" class="logo"> <span class="site-name can-hide">Dafny</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" aria-current="page" class="nav-link router-link-exact-active router-link-active">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" class="nav-link">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://s1.ax1x.com/2022/04/01/qh3tDe.png"> <div class="blogger-info"><h3>Dafny</h3> <span>新一代验证语言</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" aria-current="page" class="nav-link router-link-exact-active router-link-active">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" class="nav-link">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Dafny教程</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Dafny进阶语法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dafnycommunity/pages/273cac/" aria-current="page" class="active sidebar-link">引理和归纳</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#引言" class="sidebar-link">引言</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#零搜索" class="sidebar-link">零搜索</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#引理" class="sidebar-link">引理</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#计数" class="sidebar-link">计数</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#证明分配性质" class="sidebar-link">证明分配性质</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#归纳" class="sidebar-link">归纳</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/273cac/#有向图的路径" class="sidebar-link">有向图的路径</a></li></ul></li><li><a href="/dafnycommunity/pages/9d19b8/" class="sidebar-link">模块</a></li><li><a href="/dafnycommunity/pages/b9300a/" class="sidebar-link">集合</a></li><li><a href="/dafnycommunity/pages/cb3d21/" class="sidebar-link">序列</a></li><li><a href="/dafnycommunity/pages/fc6196/" class="sidebar-link">终止</a></li><li><a href="/dafnycommunity/pages/a2a107/" class="sidebar-link">值类型</a></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-0c557b5e><div class="articleInfo" data-v-0c557b5e><ul class="breadcrumbs" data-v-0c557b5e><li data-v-0c557b5e><a href="/dafnycommunity/" title="首页" class="iconfont icon-home router-link-active" data-v-0c557b5e></a></li> <li data-v-0c557b5e><a href="/dafnycommunity/jiaocheng/#教程" data-v-0c557b5e>教程</a></li><li data-v-0c557b5e><a href="/dafnycommunity/jiaocheng/#Dafny进阶语法" data-v-0c557b5e>Dafny进阶语法</a></li></ul> <div class="info" data-v-0c557b5e><div title="作者" class="author iconfont icon-touxiang" data-v-0c557b5e><a href="https://github.com/Aaron-clou" target="_blank" title="作者" class="beLink" data-v-0c557b5e>lijiahai</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-0c557b5e><a href="javascript:;" data-v-0c557b5e>2022-03-26</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">引理和归纳<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="引理和归纳"><a href="#引理和归纳" class="header-anchor">#</a> 引理和归纳</h1> <h2 id="引言"><a href="#引言" class="header-anchor">#</a> 引言</h2> <p>有时需要一些逻辑步骤来证明一个程序是正确的，但是对于Dafny来说，这些步骤太复杂了。当这种情况发生时，我们通常可以通过提供引理来帮助Dafny证明程序。</p> <p>引理是用来证明另一个结果的定理，而不是用来证明本身。他们允许Dafny将证明分成两部分:证明引理，然后用引理来证明最终结果;最后的结果就是程序正确性的证明。通过这样分割它，你可以防止Dafny试图证明远超它证明能力的程序。总的来说，Dafny和计算机在处理一堆具体细节情况方面都做得很好，但它缺乏看到能使证明过程变得更容易的中间步骤的能力。</p> <p>通过使用引理，你可以找出这些中间步骤是什么，以及什么时候在程序使用它们。对于有关归纳论证的问题来说，<code>lemma</code>无疑是对症下药的一剂良方。</p> <h2 id="零搜索"><a href="#零搜索" class="header-anchor">#</a> 零搜索</h2> <p>我们首次接触引理，先来学习一个简单的例子:在数组中搜索零。这个问题有趣在于我们正在搜索的这个数组有两个特殊的属性:
+所有元素都是非负的。
+每个连续元素最多比前一个元素小一。
+在代码:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>method FindZero(a: array&lt;int&gt;) returns (index: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+{
+}
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>有这样的一堆要求条件，我们可以用一些聪明的方法:我们可以跳过元素。假设我们正在遍历数组，看到<code>a[j] == 7</code>。然后我们知道<code>6 &lt;= a[j+1]</code>，<code>5 &lt;= a[j+2]</code>，等等。事实上，下一个0要等到数组中7个元素全部走一遍时才会出现。所以我们甚至不需要刻意寻找0只用一直<code>a[j+a[j]]</code>就行了。所以我们可以这样写一个循环:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>method FindZero(a: array&lt;int&gt;) returns (index: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   ensures index &lt; 0  ==&gt; forall i :: 0 &lt;= i &lt; a.Length ==&gt; a[i] != 0
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == 0
+{
+   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index
+      invariant forall k :: 0 &lt;= k &lt; index &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      if a[index] == 0 { return; }
+      index := index + a[index];
+   }
+   index := -1;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index
+      invariant forall k :: 0 &lt;= k &lt; index &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      if a[index] == 0 { return; }
+      index := index + a[index];
+   }
+   index := -1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>这段代码将计算得到正确的结果，但是Dafny在第二个循环不变量报错。Dafny并不认为跳过所有这些元素是合理的。原因是，前置条件说的是：每个连续的元素最多减一，但它没有说间隔更远的元素是如何关联的。为了让Dafny相信这事实，我们需要使用引理。</p> <h2 id="引理"><a href="#引理" class="header-anchor">#</a> 引理</h2> <p>引理其实就是个ghost方法。引理(更准确地说，引理的结论)所要求的性质被声明为后置条件，就像在普通方法声明的一样。与方法不同，引理永远不会被改变状态。因为引理是ghost方法，所以不需要在运行时调用它，所以编译器在生成可执行代码之前会删除、无视它。因此，引理的存在仅仅是因为它对程序验证有一定作用。一个典型的引理长这样的:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma Lemma(...)
+   ensures (desirable property)
+{
+   ...
+}				
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>对于零搜索问题，理想的性质是在<code>index + a[index]</code>之前，index中的元素都不能为零。按照<code>FindZero</code>的<code>requierments</code>，我们将数组和起始索引作为参数:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma SkippingLemma(a: array&lt;int&gt;, j: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   requires 0 &lt;= j &lt; a.Length
+   ensures forall i :: j &lt;= i &lt; j + a[j] &amp;&amp; i &lt; a.Length ==&gt; a[i] != 0
+{
+   //...
+}
+lemma SkippingLemma(a: array&lt;int&gt;, j: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   requires 0 &lt;= j &lt; a.Length
+   ensures forall i :: j &lt;= i &lt; j + a[j] &amp;&amp; i &lt; a.Length ==&gt; a[i] != 0
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>后置条件就是我们想要的属性。<code>i</code>有额外限制是因为<code>j + a[j]</code>可能超过了数组的末尾。我们只想讨论这个范围内的下标也就是数组中的下标。然后我们做了一个关键的步骤:检查我们的引理是否足以证明循环不变量。通过在填充引理体之前进行检查，我们确保我们试图证明的是正确的东西。<code>FindZero</code>方法变成:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma SkippingLemma(a: array&lt;int&gt;, j: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   requires 0 &lt;= j &lt; a.Length
+   ensures forall i :: j &lt;= i &lt; j + a[j] &amp;&amp; i &lt; a.Length ==&gt; a[i] != 0
+{
+   //...
+}
+method FindZero(a: array&lt;int&gt;) returns (index: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   ensures index &lt; 0  ==&gt; forall i :: 0 &lt;= i &lt; a.Length ==&gt; a[i] != 0
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == 0
+{
+   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index
+      invariant forall k :: 0 &lt;= k &lt; index &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      if a[index] == 0 { return; }
+      SkippingLemma(a, index);
+      index := index + a[index];
+   }
+   index := -1;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div class="language-dafmy line-numbers-mode"><pre class="language-text"><code>   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index
+      invariant forall k :: 0 &lt;= k &lt; index &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      if a[index] == 0 { return; }
+      SkippingLemma(a, index);
+      index := index + a[index];
+   }
+   index := -1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>现在，Dafny没有报错<code>FindZero</code>方法，因为引理的后置条件显示循环不变式被保留了。但它对引理本身报错，这并不奇怪，因为主体是空的。为了让Dafny接受引理，我们必须证明后置条件为真。就像我们在Dafny中做的所有事情一样:编写代码。</p> <p>我们从数组的关键属性开始，因为零搜索问题中的元素都只会缓慢下降。我们可以通过使用断言来询问某些属性是否存在。例如，我们可以看到Dafny知道:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma SkippingLemma(a: array&lt;int&gt;, j: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   requires 0 &lt;= j &lt; a.Length - 3
+   // Note: the above has been changed so that the array indices below are good.
+{
+   assert a[j  ] - 1 &lt;= a[j+1];
+   assert a[j+1] - 1 &lt;= a[j+2];
+   assert a[j+2] - 1 &lt;= a[j+3];
+   // therefore:
+   assert a[j  ] - 3 &lt;= a[j+3];
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>   assert a[j  ] - 1 &lt;= a[j+1];
+   assert a[j+1] - 1 &lt;= a[j+2];
+   assert a[j+2] - 1 &lt;= a[j+3];
+   // therefore:
+   assert a[j  ] - 3 &lt;= a[j+3];
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>因此，我们可以看到，Dafny可以跟随任何单独的步骤，甚至可以适当地链。但是我们需要的步数不是恒定的:它可能取决于<code>a[j]</code>的值。但是我们已经有了一个用于处理可变数量步骤的构造:while循环!</p> <p>我们可以用同样的结构让Dafny把步骤连在一起。我们想要从<code>j</code>迭代到<code>j + a[j]</code>，同时跟踪下界。我们还会跟踪到我们目前看到的所有元素都不为零的事实:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma SkippingLemma(a: array&lt;int&gt;, j: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   requires 0 &lt;= j &lt; a.Length
+   ensures forall k :: j &lt;= k &lt; j + a[j] &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+{
+   var i := j;
+   while i &lt; j + a[j] &amp;&amp; i &lt; a.Length
+      invariant i &lt; a.Length ==&gt; a[j] - (i-j) &lt;= a[i]
+      invariant forall k :: j &lt;= k &lt; i &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      i := i + 1;
+   }
+}
+method FindZero(a: array&lt;int&gt;) returns (index: int)
+   requires forall i :: 0 &lt;= i &lt; a.Length ==&gt; 0 &lt;= a[i]
+   requires forall i :: 0 &lt; i &lt; a.Length ==&gt; a[i-1]-1 &lt;= a[i]
+   ensures index &lt; 0  ==&gt; forall i :: 0 &lt;= i &lt; a.Length ==&gt; a[i] != 0
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == 0
+{
+   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index
+      invariant forall k :: 0 &lt;= k &lt; index &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      if a[index] == 0 { return; }
+      SkippingLemma(a, index);
+      index := index + a[index];
+   }
+   index := -1;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>   var i := j;
+   while i &lt; j + a[j] &amp;&amp; i &lt; a.Length
+      invariant i &lt; a.Length ==&gt; a[j] - (i-j) &lt;= a[i]
+      invariant forall k :: j &lt;= k &lt; i &amp;&amp; k &lt; a.Length ==&gt; a[k] != 0
+   {
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>第一个不变式给出当前元素的边界，如果我们还没有跑到数组的末尾。对于超过<code>j</code>的每一个索引(其中有<code>i-j</code>)，数组元素可以小一，因此从<code>a[j]</code>中减去这个值。这只是说当前元素不能为零，所以如果没有第二个不变量，Dafny就不能知道数组里没有零。Dafny忘记了循环执行的所有内容，除了在不变量中给出的内容，所以我们需要建立这样一个事实，即到目前为止，任何地方都没有零。
+循环体只是使计数器加1。正如我们之前看到的，Dafny能够自己计算出每一步，所以我们不需要做任何进一步的操作。我们只需要给它一个需要证明的结构。有时，单个步骤本身就足够复杂到它们需要自己的子证明，通过使用一系列断言语句或整个其他引理。</p> <p>在使用数组时，迭代是许多问题的自然解决方案。但是，有时会使用递归来定义函数或属性。在这些情况下，引理通常具有相同的递归结构。为了看一个例子，我们将考虑计数的问题。</p> <h2 id="计数"><a href="#计数" class="header-anchor">#</a> 计数</h2> <p>我们将使用<code>count</code>函数在一个<code>bool</code>序列中计算<code>true</code>的数量，如下所示:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+method m()
+{
+   assert count([]) == 0;
+   assert count([true]) == 1;
+   assert count([false]) == 0;
+   assert count([true, true]) == 2;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+...
+   assert count([]) == 0;
+   assert count([true]) == 1;
+   assert count([false]) == 0;
+   assert count([true, true]) == 2;
+...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>代码非常简单，但需要注意的一点是，该函数是递归定义的。像这样的递归函数很容易需要引理。我们希望在验证使用此函数的程序时能够使用count的一个属性:它应用于加法上。我们的意思是:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>forall a, b :: count(a + b) == count(a) + count(b)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这里，第一个加号(+)是序列拼接，第二个加号是整数相加。显然，我们可以将任意序列分解为两个序列<code>a</code>和<code>b</code>，分别计算它们，并将结果相加。这是事实，但Dafny无法直接证明。问题是函数并没有以这种方式分割序列。该函数取第一个元素，计算其计数，然后将其添加到序列的其余部分。如果<code>a</code>很长，那么在这个展开过程实际到达<code>count(b)</code>之前可能需要一段时间，因此Dafny只尝试展开几个递归调用。(确切地说，是两个。参见Amin, Leino, and Rompf的论文Computing with an SMT solver, TAP 2014。)这是一个需要引理来证明的性质的例子。</p> <p>在我们的例子中,我们有两个选择引理:我们也可以写全称量词,或者我们可以使引理特定序列<code>a</code>和<code>b</code>。事实证明,当我们想要分配律,我们不需要完整的通用属性。我们感兴趣的是，对于程序中已知的两个特定的<code>a</code>和<code>b</code>, <code>count(a + b) == count(a) + count(b)</code>。因此，当我们调用引理来得到这个性质时，我们可以告诉它我们感兴趣的是哪两个序列。如果我们在其他地方有不同的序列，我们可以用不同的参数调用方法，就像普通方法一样。事实证明，证明完整的全称性质，虽然是可能的，但比证明具体的，具体的情况要复杂得多，所以我们先来处理这个情况。</p> <p>因此引理应该将感兴趣的序列作为参数，后置条件如下:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DistributiveLemma(a: seq&lt;bool&gt;, b: seq&lt;bool&gt;)
+   ensures count(a + b) == count(a) + count(b)
+{
+}
+function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DistributiveLemma(a: seq&lt;bool&gt;, b: seq&lt;bool&gt;)
+   ensures count(a + b) == count(a) + count(b)
+{
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="证明分配性质"><a href="#证明分配性质" class="header-anchor">#</a> 证明分配性质</h2> <p>为了写出引理，我们必须想出一个证明它的方法。正如您可以在上面验证的(没有双关语)，引理还不能工作，否则引理将是不必要的。为了做到这一点，我们注意到Dafny无法首先证明这一点的原因是<code>count</code>函数从序列的开始定义，而分配律则在序列的中间操作。因此，如果我们能找到一种从序列的前面开始工作的方法，那么Dafny就可以直接使用函数的定义。这个序列的第一个元素是什么?在一些情况下，<code>a</code>和<code>b</code>是空序列(如果有的话)。因此我们的引理必须考虑多种情况，引理的共同特征。我们注意到，如果<code>a ==[]</code>，那么<code>a+ b == b</code>，不管<code>b</code>是多少。引理处理情况的方式与代码处理情况的方式相同:if语句。下面使用断言给出了所需属性的简短证明。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DistributiveLemma(a: seq&lt;bool&gt;, b: seq&lt;bool&gt;)
+   ensures count(a + b) == count(a) + count(b)
+{
+   if a == []
+   {
+      assert a + b == b;
+      assert count(a) == 0;
+      assert count(a + b) == count(b);
+      assert count(a + b) == count(a) + count(b);
+   }
+   else
+   {
+      //...
+   }
+}
+function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>if a == []
+{
+   assert a + b == b;
+   assert count(a) == 0;
+   assert count(a + b) == count(b);
+   assert count(a + b) == count(a) + count(b);
+}
+else
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>在这种情况下，我们可以通过添加一个<code>requires</code>子句来检验引理。我们发现代码验证。这意味着如果<code>a ==[]</code>，则引理将正确地证明后置条件。在这种情况下，只需要上面的第一个断言;Dafny自己完成了剩下的步骤(试试吧!)现在我们可以考虑另一种情况，当<code>0 &lt; |a|</code>。</p> <p>我们的目标是将<code>count(a + b)</code>与<code>count(a)</code>和<code>count(b)</code>联系起来。如果a不是空序列，那么当我们按照定义展开<code>count(a + b)</code>时，我们得到:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+method m2(a: seq&lt;bool&gt;, b:seq&lt;bool&gt;)
+   requires |a| &gt; 0
+{
+   assert a + b == [a[0]] + (a[1..] + b);
+   assert count(a + b) == count([a[0]]) + count(a[1..] + b);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>assert a + b == [a[0]] + (a[1..] + b);
+assert count(a + b) == count([a[0]]) + count(a[1..] + b);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>注意，我们得到<code>count([a[0]])</code>和<code>a[1..]</code>。如果我们扩展<code>count(a)</code>，这两项也会出现。具体地说:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>method m2(a: seq&lt;bool&gt;, b:seq&lt;bool&gt;)
+   requires |a| &gt; 0
+{
+   assert count(a) == count([a[0]]) + count(a[1..]);
+}
+function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>assert count(a) == count([a[0]]) + count(a[1..]);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>最后，我们可以将<code>count(a)</code>的定义替换为后置条件，以获得:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>assert count(a + b) == count(a) + count(b); // postcondition
+assert count(a + b) == count([a[0]]) + count(a[1..]) + count(b);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>现在这看起来很像我们展开<code>count(a + b)</code>后得到的表达式。唯一的区别是<code>count(a[1.. .) + count(a[1..]) + count(b)</code>。但这正是我们要证明的性质!</p> <h2 id="归纳"><a href="#归纳" class="header-anchor">#</a> 归纳</h2> <p>我们试图提出的论点是归纳的。我们可以证明我们的目标，只要这个问题的一个小版本是正确的。这正是归纳法的概念:用一个小问题来证明一个大问题。为此，我们在代码中调用递归属性。它是一个方法，所以我们可以在需要它的时候调用它。</p> <p>Dafny将假定递归调用满足规范。这就是归纳假设，所有引理的递归调用都是有效的。这关键取决于Dafny也证明了终止。这意味着最终，引理不会再进行递归调用。在本例中，这是if语句的第一个分支。如果没有递归调用，那么引理必须直接证明这种情况。然后，堆栈中的每个调用都是合理的，假设引理适用于较小的情况。如果Dafny没有证明链终止，那么链可以永远继续，并且对于每个调用的假设都是不合理的。</p> <p>归纳法通常是寻找一种方法，一步一步地建立你的目标。从另一个角度来看，它证明了你的目标是一个更小的版本。通过一次分解一个元素，直到第一个序列完全消失，证明了分配引理。这种情况被证明是一个基本情况，然后整个链的解构被验证。</p> <p>成功的关键是Dafny从来不用考虑整个通话链。通过检验终止，得到链是有限的。然后它要做的就是检查一步。如果任意一步是有效的，那么整个链也是有效的。这与Dafny在循环中使用的逻辑相同:检查初始不变项是否成立，任意一个步骤是否保持不变，然后检查整个循环，不管循环循环了多少次。这种相似性不仅仅是表面的。这两种引理(以及Dafny对程序的两种推理)都是归纳的。考虑到迭代和递归作为实现同一目标的两种方法之间的关系，这也不足为奇。</p> <p>记住这一点，我们可以通过在if语句的else分支中递归地调用引理来完成引理:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DistributiveLemma(a: seq&lt;bool&gt;, b: seq&lt;bool&gt;)
+   ensures count(a + b) == count(a) + count(b)
+{
+   if a == []
+   {
+      assert a + b == b;
+   }
+   else
+   {
+      DistributiveLemma(a[1..], b);
+      assert a + b == [a[0]] + (a[1..] + b);
+   }
+}
+function count(a: seq&lt;bool&gt;): nat
+{
+   if |a| == 0 then 0 else
+   (if a[0] then 1 else 0) + count(a[1..])
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>  if a == []
+   {
+      assert a + b == b;
+   }
+   else
+   {
+      DistributiveLemma(a[1..], b);
+      assert a + b == [a[0]] + (a[1..] + b);
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>现在这个引理得到了验证。但是如果我们想要表达每一对序列都是这样联系的呢?为了做到这一点，我们必须看看引理在Dafny中的另一种用法，我们将用另一个例子来探索。</p> <h2 id="有向图的路径"><a href="#有向图的路径" class="header-anchor">#</a> 有向图的路径</h2> <p>作为最后一个更高级的例子，我们将证明一个关于有向图中路径的性质。为此，我们有机会称一个引理在所有节点序列上是普遍的。一个有向图由若干个节点组成，每个节点都有一些到其他节点的链接。这些链接是单向的，对它们的唯一限制是节点不能链接到自己。节点定义为:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>class Node
+{
+   // a single field giving the nodes linked to
+   var next: seq&lt;Node&gt;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>我们将图表示为一组节点，这些节点只指向图中的其他节点，而不指向自己。我们称这样一组节点为封闭的:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph ==&gt;
+      forall k :: 0 &lt;= k &lt; |i.next| ==&gt; i.next[k] in graph &amp;&amp; i.next[k] != i
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>我们将路径表示为非空节点序列，其中每个节点都与路径中的前一个节点相连。我们定义了两个谓词，一个用于定义有效路径，另一个用于确定给定路径是否为图中两个特定节点之间的有效路径:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>现在我们准备好陈述我们要证明的引理了。我们考虑一个图和一个子图:一个也构成一个图的节点的子集。这个子图必须是封闭的，即不包含自身之外的链接。如果我们有这样的情况，那么从子图中的一个节点到子图之外的一个节点不可能有一条有效的路径。我们将这个事实称为闭合引理，我们在Dafny中这样表述:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma ClosedLemma(subgraph: set&lt;Node&gt;, root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !(exists p: seq&lt;Node&gt; :: pathSpecific(p, root, goal, graph))
+{
+   //...
+}
+class Node
+{
+   var next: seq&lt;Node&gt;
+}
+predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph ==&gt; forall k :: 0 &lt;= k &lt; |i.next| ==&gt; i.next[k] in graph &amp;&amp; i.next[k] != i
+}
+lemma ClosedLemma(subgraph: set&lt;Node&gt;, root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !(exists p: seq&lt;Node&gt; :: pathSpecific(p, root, goal, graph))
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>前提条件说明了所有的要求:图和子图都是有效的，根节点在子图中但目标不在，所有内容都包含在主图中。后置条件声明没有从根到目标的有效路径。这里我们只对特定的开始/结束节点对证明它。</p> <p>证明某物不存在的一种方法是证明给定的任意节点序列它不是一个有效路径。我们可以用，你猜对了，另一个引理。这个引理将证明，对于任何给定的序列，它不是从根<code>root</code>到目标<code>goal</code>的有效路径。路径引理的反证如下:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !pathSpecific(p, root, goal, graph)
+{
+}
+class Node
+{
+   var next: seq&lt;Node&gt;
+}
+predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph ==&gt; forall k :: 0 &lt;= k &lt; |i.next| ==&gt; i.next[k] in graph &amp;&amp; i.next[k] != i
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !pathSpecific(p, root, goal, graph)
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>前提与闭引理相同。要在闭引理<code>ClosedLemma</code>中使用反证明引理<code>DisproofLemma</code>，我们需要对每个节点序列调用它一次。这可以通过Dafny的<code>forall</code>语句来完成，该语句聚合了给定绑定变量的所有值对其主体的影响。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma ClosedLemma(subgraph: set&lt;Node&gt;, root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !(exists p: seq&lt;Node&gt; :: pathSpecific(p, root, goal, graph))
+{
+   forall p {
+      DisproofLemma(p, subgraph, root, goal, graph);
+   }
+}
+lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !pathSpecific(p, root, goal, graph)
+{
+}
+class Node
+{
+   var next: seq&lt;Node&gt;
+}
+predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph =
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma ClosedLemma(subgraph: set&lt;Node&gt;, root: Node, goal: Node, graph: set&lt;Node&gt;)
+   ...
+   ensures !(exists p: seq&lt;Node&gt; :: pathSpecific(p, root, goal, graph))
+{
+   forall p {
+      DisproofLemma(p, subgraph, root, goal, graph);
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>如你所见，这使得闭引理<code>ClosedLemma</code>得到验证，所以我们对引理的测试是成功的。因此，反证明引理<code>DisproofLemma</code>是足够强的，我们的工作仅仅是证明它。</p> <p>有几种不同的方式可以使节点序列成为无效路径。如果路径为空，则它不能是有效路径。此外，路径的第一个元素必须是根<code>root</code>，最后一个元素必须是目标<code>goal</code>。因为<code>root in subgraph</code>，<code>goal !in subgraph</code>，我们必须有<code>root != goal</code>，所以序列必须至少有两个元素。为了验证Dafny是否看到了这一点，我们可以临时在引理上加上先决条件，如下所示:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   requires |p| &lt; 2 || p[0] != root || p[|p|-1] != goal
+   ensures !pathSpecific(p, root, goal, graph)
+{
+}
+class Node
+{
+   var next: seq&lt;Node&gt;
+}
+predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph ==&gt; forall k :: 0 &lt;= k &lt; |i.next| ==&gt; i.next[k] in graph &amp;&amp; i.next[k] != i
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires ...  // as before
+   requires |p| &lt; 2 || p[0] != root || p[|p|-1] != goal
+   ...
+{
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>注意，这将导致闭引理<code>ClosedLemma</code>停止验证，因为引理现在只对一些序列有效。我们将忽略闭合引理<code>ClosedLemma</code>，直到我们完成反驳引理<code>DisproofLemma</code>。这就证明了，这意味着Dafny能够在这些情况下证明后置条件。因此，我们只需要证明当这些条件不成立时，路径是无效的。我们可以用if语句来表达:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>   if 1 &lt; |p| &amp;&amp; p[0] == root &amp;&amp; p[|p|-1] == goal {
+      (further proof)
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>如果路径至少有两个元素长，第一个元素是根root元素，最后一个元素是目标goal元素，那么我们就有了进一步的证明。如果这些条件没有满足(也就是说，如果if语句的保护为<code>false</code>，并且控制在隐式else分支中继续)，Dafny将自己证明后置条件(高级备注:你可以通过临时添加语句<code>assume false</code>来检查这一点;在if的then分支中)。现在我们只需要填入进一步的证明部分。在这样做时，我们可以假定if语句的保护条件。我们现在可以使用和上面一样的归纳技巧。</p> <p>如果序列从根<code>root</code>节点开始，并在目标节点<code>goal</code>结束，则它不能有效，因为序列必须在某个点上有一个不在前一个节点下一个列表中的节点。当我们得到任何像这样的特定序列时，我们可以将它分为两种情况:要么序列在从第一个节点到第二个节点的链接中无效，要么它在一行中的某个地方被打断了。就像在计数示例中一样，Dafny可以看到，如果第一个到第二个节点链接无效，那么序列就不能是路径，因为这反映了路径<code>path</code>的定义。因此，只有当第一个链接有效时，我们才有进一步的工作要做。我们可以用另一个if语句来表达:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>if 1 &lt; |p| &amp;&amp; p[0] == root &amp;&amp; p[|p|-1] == goal {
+      if p[1] in p[0].next {
+         (yet further proof)
+      }
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>这里是归纳<code>induction</code>。我们知道<code>p[0] == root</code>, <code>p[1] in p[0].next.</code>中。我们还从子图的根<code>root in subgraph</code>的先决条件知道。因此，由于闭子图 <code>closed(subgraph)</code>，我们知道<code>p[1] in subgraph</code> 。这些条件和我们开始时是一样的!我们现在面对的是同一个问题的一个小版本。我们可以递归地调用反证明引理<code>DisproofLemma</code>来证明<code>p[1..</code>不是一条路。这意味着，根据路径<code>path</code>的定义，p不能是路径，并且满足第二个后置条件。这可以实现为:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !pathSpecific(p, root, goal, graph)
+{
+   if 1 &lt; |p| &amp;&amp; p[0] == root &amp;&amp; p[|p|-1] == goal {
+      if p[1] in p[0].next {
+         DisproofLemma(p[1..], subgraph, p[1], goal, graph);
+      }
+   }
+}
+lemma ClosedLemma(subgraph: set&lt;Node&gt;, root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !(exists p: seq&lt;Node&gt; :: pathSpecific(p, root, goal, graph))
+{
+   forall p {
+      DisproofLemma(p, subgraph, root, goal, graph);
+   }
+}
+class Node
+{
+   var next: seq&lt;Node&gt;
+}
+predicate pathSpecific(p: seq&lt;Node&gt;, start: Node, end: Node, graph: set&lt;Node&gt;)
+   requires closed(graph)
+   reads graph
+{
+   0 &lt; |p| &amp;&amp; // path is nonempty
+   start == p[0] &amp;&amp; end == p[|p|-1] &amp;&amp; // it starts and ends correctly
+   path(p, graph) // and it is a valid path
+}
+predicate path(p: seq&lt;Node&gt;, graph: set&lt;Node&gt;)
+   requires closed(graph) &amp;&amp; 0 &lt; |p|
+   reads graph
+{
+   p[0] in graph &amp;&amp;
+   (|p| &gt; 1 ==&gt; p[1] in p[0].next &amp;&amp; // the first link is valid, if it exists
+      path(p[1..], graph)) // and the rest of the sequence is a valid
+}
+predicate closed(graph: set&lt;Node&gt;)
+   reads graph
+{
+   forall i :: i in graph ==&gt; forall k :: 0 &lt;= k &lt; |i.next| ==&gt; i.next[k] in graph &amp;&amp; i.next[k] != i
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>lemma DisproofLemma(p: seq&lt;Node&gt;, subgraph: set&lt;Node&gt;,
+                    root: Node, goal: Node, graph: set&lt;Node&gt;)
+   requires closed(subgraph) &amp;&amp; closed(graph) &amp;&amp; subgraph &lt;= graph
+   requires root in subgraph &amp;&amp; goal in graph - subgraph
+   ensures !pathSpecific(p, root, goal, graph)
+{
+   if 1 &lt; |p| &amp;&amp; p[0] == root &amp;&amp; p[|p|-1] == goal {
+      if p[1] in p[0].next {
+         DisproofLemma(p[1..], subgraph, p[1], goal, graph);
+      }
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>现在闭引理<code>DisproofLemma</code>被验证了，随着测试前提的移除，我们看到闭引理<code>ClosedLemma</code>也被验证了。由此证明了封闭子图不存在从内部到外部的路径。</p> <p>当一个引理需要无限次实例化时，<code>forall</code>语句是有用的。这个例子展示了<code>forall</code>语句的一个简单版本。要了解更高级的版本，请参见Leino的《Dafny中的良好基础函数和极端谓词:教程》，iwill -2015，或Dafny测试套件中的示例。</p> <p>永远记得检查你的引理是否足以证明你需要的。没有什么比花时间做引理验证，结果发现你需要更强大的东西更令人沮丧的了。这也可以让你避免创建一个带有前置条件的引理，因为前置条件的限制太大，以至于你不能在需要的地方调用它。</p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/aaron-clou/dafnycommunity/edit/master/docs/30.教程/10.Dafny进阶语法/00.引理和归纳.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022/03/26, 19:35:15</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/dafnycommunity/pages/30a8c2/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">结论</div></a> <a href="/dafnycommunity/pages/9d19b8/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">模块</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/dafnycommunity/pages/30a8c2/" class="prev">结论</a></span> <span class="next"><a href="/dafnycommunity/pages/9d19b8/">模块</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/dafnycommunity/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/dafnycommunity/pages/0978ce/"><div>
+            寻找最大和最小数
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>02</dd> <dt><a href="/dafnycommunity/pages/e3e481/"><div>
+            斐波那契数列
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>03</dd> <dt><a href="/dafnycommunity/pages/02fdef/"><div>
+            线性查询
+            <!----></div></a> <span class="date">04-06</span></dt></dl> <dl><dd></dd> <dt><a href="/dafnycommunity/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/Aaron-clou/dafnycommunity" title="Github" target="_blank" class="iconfont icon-github-fill"></a><a href="https://gitee.com/leo214/dafnycommunity" title="Gitee" target="_blank" class="iconfont icon-gitee2"></a><a href="1374921025@qq.com" title="Email" target="_blank" class="iconfont icon-email-fill"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2022-2022
+    <span>Li Jiahai | Dafny Community | 2022</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><!----><div id="tcomment"></div><div></div></div></div>
+    <script src="/dafnycommunity/assets/js/app.99d07194.js" defer></script><script src="/dafnycommunity/assets/js/2.ab4658c0.js" defer></script><script src="/dafnycommunity/assets/js/50.060e0424.js" defer></script><script src="/dafnycommunity/assets/js/7.5451cfed.js" defer></script><script src="/dafnycommunity/assets/js/4.06497870.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Started with Dafny A Guide | Dafny</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/dafnycommunity/img/bgico2.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3282046_1qux519eoim.css">
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.5.0/dist/twikoo.all.min.js"></script>
+    <meta name="description" content="Dafny中文社区">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css" as="style"><link rel="preload" href="/dafnycommunity/assets/js/app.99d07194.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/2.ab4658c0.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/71.16ef2000.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/7.5451cfed.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/4.06497870.js" as="script"><link rel="prefetch" href="/dafnycommunity/assets/js/10.ac38cab7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/11.38d5ee16.js"><link rel="prefetch" href="/dafnycommunity/assets/js/12.c434ce94.js"><link rel="prefetch" href="/dafnycommunity/assets/js/13.4e922264.js"><link rel="prefetch" href="/dafnycommunity/assets/js/14.db841cfa.js"><link rel="prefetch" href="/dafnycommunity/assets/js/15.b9c227cc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/16.41dadc32.js"><link rel="prefetch" href="/dafnycommunity/assets/js/17.48b5f1eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/18.ec254833.js"><link rel="prefetch" href="/dafnycommunity/assets/js/19.288ca382.js"><link rel="prefetch" href="/dafnycommunity/assets/js/20.cfeb5fdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/21.ce8ddc5a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/22.1b8c89f0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/23.cb062ace.js"><link rel="prefetch" href="/dafnycommunity/assets/js/24.ff271672.js"><link rel="prefetch" href="/dafnycommunity/assets/js/25.5541f3af.js"><link rel="prefetch" href="/dafnycommunity/assets/js/26.a1bbc4cb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/27.522d7884.js"><link rel="prefetch" href="/dafnycommunity/assets/js/28.9335c003.js"><link rel="prefetch" href="/dafnycommunity/assets/js/29.3fc0b07a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/3.ab8a97d8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/30.57708681.js"><link rel="prefetch" href="/dafnycommunity/assets/js/31.8571b949.js"><link rel="prefetch" href="/dafnycommunity/assets/js/32.f91be5de.js"><link rel="prefetch" href="/dafnycommunity/assets/js/33.8089c59b.js"><link rel="prefetch" href="/dafnycommunity/assets/js/34.874d0299.js"><link rel="prefetch" href="/dafnycommunity/assets/js/35.aff8adfd.js"><link rel="prefetch" href="/dafnycommunity/assets/js/36.ac78b86e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/37.3fae0334.js"><link rel="prefetch" href="/dafnycommunity/assets/js/38.3db4a8d6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/39.e585cc70.js"><link rel="prefetch" href="/dafnycommunity/assets/js/40.afcb8fbe.js"><link rel="prefetch" href="/dafnycommunity/assets/js/41.01f314da.js"><link rel="prefetch" href="/dafnycommunity/assets/js/42.8e4fe21d.js"><link rel="prefetch" href="/dafnycommunity/assets/js/43.571fb232.js"><link rel="prefetch" href="/dafnycommunity/assets/js/44.14aebad2.js"><link rel="prefetch" href="/dafnycommunity/assets/js/45.32f18970.js"><link rel="prefetch" href="/dafnycommunity/assets/js/46.ce0d522f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/47.0bd83351.js"><link rel="prefetch" href="/dafnycommunity/assets/js/48.648f667a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/49.83709ae0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/5.b8548e7f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/50.060e0424.js"><link rel="prefetch" href="/dafnycommunity/assets/js/51.a1291856.js"><link rel="prefetch" href="/dafnycommunity/assets/js/52.45f73497.js"><link rel="prefetch" href="/dafnycommunity/assets/js/53.525782ca.js"><link rel="prefetch" href="/dafnycommunity/assets/js/54.45a04a86.js"><link rel="prefetch" href="/dafnycommunity/assets/js/55.65a94ba0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/56.2d038113.js"><link rel="prefetch" href="/dafnycommunity/assets/js/57.579db650.js"><link rel="prefetch" href="/dafnycommunity/assets/js/58.832d4c89.js"><link rel="prefetch" href="/dafnycommunity/assets/js/59.13befb53.js"><link rel="prefetch" href="/dafnycommunity/assets/js/6.349bf431.js"><link rel="prefetch" href="/dafnycommunity/assets/js/60.41227bb1.js"><link rel="prefetch" href="/dafnycommunity/assets/js/61.1d1b92f4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/62.2cdbc236.js"><link rel="prefetch" href="/dafnycommunity/assets/js/63.83de9482.js"><link rel="prefetch" href="/dafnycommunity/assets/js/64.4ecd0d25.js"><link rel="prefetch" href="/dafnycommunity/assets/js/65.25118b81.js"><link rel="prefetch" href="/dafnycommunity/assets/js/66.cdab1b54.js"><link rel="prefetch" href="/dafnycommunity/assets/js/67.655e6e84.js"><link rel="prefetch" href="/dafnycommunity/assets/js/68.84effb44.js"><link rel="prefetch" href="/dafnycommunity/assets/js/69.8f07f81a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/70.d9a299e6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/72.8252acc5.js"><link rel="prefetch" href="/dafnycommunity/assets/js/73.f53e39bc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/74.5ef910c4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/75.72174d00.js"><link rel="prefetch" href="/dafnycommunity/assets/js/76.bebf75c9.js"><link rel="prefetch" href="/dafnycommunity/assets/js/77.b85547c7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/78.a0a1f574.js"><link rel="prefetch" href="/dafnycommunity/assets/js/79.a731d645.js"><link rel="prefetch" href="/dafnycommunity/assets/js/8.522ce892.js"><link rel="prefetch" href="/dafnycommunity/assets/js/80.6e5b64b0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/81.6e19e312.js"><link rel="prefetch" href="/dafnycommunity/assets/js/82.9244e788.js"><link rel="prefetch" href="/dafnycommunity/assets/js/83.f08c5aed.js"><link rel="prefetch" href="/dafnycommunity/assets/js/84.085ef3f8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/85.c41e6e0e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/86.e3798708.js"><link rel="prefetch" href="/dafnycommunity/assets/js/87.fdac1c1c.js"><link rel="prefetch" href="/dafnycommunity/assets/js/88.665ac8c8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/89.78dc55eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/9.4d4f4bdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/90.4757b202.js"><link rel="prefetch" href="/dafnycommunity/assets/js/91.a0746cf2.js">
+    <link rel="stylesheet" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dafnycommunity/" class="home-link router-link-active"><img src="/dafnycommunity/img/logo-2.png" alt="Dafny" class="logo"> <span class="site-name can-hide">Dafny</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" class="nav-link">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" class="nav-link">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://s1.ax1x.com/2022/04/01/qh3tDe.png"> <div class="blogger-info"><h3>Dafny</h3> <span>新一代验证语言</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" class="nav-link">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" class="nav-link">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>dafny-quick-start</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>dafny-tutorials</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dafnycommunity/pages/c80a4c/" aria-current="page" class="active sidebar-link">Getting Started with Dafny A Guide</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/c80a4c/#getting-started-with-dafny-a-guide" class="sidebar-link">Getting Started with Dafny: A Guide</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#methods" class="sidebar-link">Methods</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#pre-and-postconditions" class="sidebar-link">Pre- and Postconditions</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#assertions" class="sidebar-link">Assertions</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#functions" class="sidebar-link">Functions</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#loop-invariants" class="sidebar-link">Loop Invariants</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#termination" class="sidebar-link">Termination</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#arrays" class="sidebar-link">Arrays</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#quantifiers" class="sidebar-link">Quantifiers</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#predicates" class="sidebar-link">Predicates</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#framing" class="sidebar-link">Framing</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#binary-search" class="sidebar-link">Binary Search</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/c80a4c/#conclusion" class="sidebar-link">Conclusion</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>detailed-document</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>publication-lecture</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-0c557b5e><div class="articleInfo" data-v-0c557b5e><ul class="breadcrumbs" data-v-0c557b5e><li data-v-0c557b5e><a href="/dafnycommunity/" title="首页" class="iconfont icon-home router-link-active" data-v-0c557b5e></a></li> <li data-v-0c557b5e><a href="/dafnycommunity/en-US/#语言" data-v-0c557b5e>语言</a></li><li data-v-0c557b5e><a href="/dafnycommunity/en-US/#dafny-tutorials" data-v-0c557b5e>dafny-tutorials</a></li></ul> <div class="info" data-v-0c557b5e><div title="作者" class="author iconfont icon-touxiang" data-v-0c557b5e><a href="https://github.com/Aaron-clou" target="_blank" title="作者" class="beLink" data-v-0c557b5e>lijiahai</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-0c557b5e><a href="javascript:;" data-v-0c557b5e>2022-03-26</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">Getting Started with Dafny A Guide<!----></h1> <!----> <div class="theme-vdoing-content content__default"><p><a href="https://dafny-lang.github.io/dafny" target="_blank" rel="noopener noreferrer">Dafny Documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id=""><a href="#" class="header-anchor">#</a></h1> <h2 id="getting-started-with-dafny-a-guide"><a href="#getting-started-with-dafny-a-guide" class="header-anchor">#</a> Getting Started with Dafny: A Guide</h2> <p>Be sure to follow along with the code examples by clicking the “load in editor” link in the corner. See what the tool says, try to fix programs on your own, and experiment!</p> <h3 id="introduction"><a href="#introduction" class="header-anchor">#</a> Introduction</h3> <p>Dafny is a language that is designed to make it easy to write correct code. This means correct in the sense of not having any runtime errors, but also correct in actually doing what the programmer intended it to do. To accomplish this, Dafny relies on high-level annotations to reason about and prove correctness of code. The effect of a piece of code can be given abstractly, using a natural, high-level expression of the desired behavior, which is easier and less error prone to write. Dafny then generates a proof that the code matches the annotations (assuming they are correct, of course!). Dafny lifts the burden of writing bug-free <em>code</em> into that of writing bug-free <em>annotations</em>. This is often easier than writing the code, because annotations are shorter and more direct. For example, the following fragment of annotation in Dafny says that every element of the array is strictly positive:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>forall k: int :: 0 &lt;= k &lt; a.Length ==&gt; 0 &lt; a[k]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>This says that for all integers <code>k</code> that are indices into the array, the value at that index is greater than zero. By writing these annotations, one is confident that the code is correct. Further, the very act of writing the annotations can help one understand what the code is doing at a deeper level.</p> <p>In addition to proving a correspondence to user supplied annotations, Dafny proves that there are no run time errors, such as index out of bounds, null dereferences, division by zero, etc. This guarantee is a powerful one, and is a strong case in and of itself for the use of Dafny and tools like it. Dafny also proves the termination of code, except in specially designated loops.</p> <p>Let’s get started writing some Dafny programs.</p> <h3 id="methods"><a href="#methods" class="header-anchor">#</a> Methods</h3> <p>Dafny resembles a typical imperative programming language in many ways. There are methods, variables, types, loops, if statements, arrays, integers, and more. One of the basic units of any Dafny program is the <em>method</em>. A method is a piece of imperative, executable code. In other languages, they might be called procedures, or functions, but in Dafny the term “function” is reserved for a different concept that we will cover later. A method is declared in the following way:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>This declares a method called “<code>Abs</code>” which takes a single integer parameter, called “<code>x</code>”, and returns a single integer, called “<code>y</code>”. Note that the types are required for each parameter and return value, and follow each name after a colon (<code>:</code>). Also, the return values are named, and there can be multiple return values, as in below:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>The method body is the code contained within the braces, which until now has been cleverly represented as “<code>...</code>” (which is <em>not</em> Dafny syntax). The body consists of a series of <em>statements</em>, such as the familiar imperative assignments, <code>if</code> statements, loops, other method calls, <code>return</code> statements, etc. For example, the <code>MultipleReturns</code> method may be implemented as:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+{
+   more := x + y;
+   less := x - y;
+   // comments: are not strictly necessary.
+   /* unless you want to keep your sanity. */
+}
+method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+{
+   more := x + y;
+   less := x - y;
+   // comments: are not strictly necessary.
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>Assignments do not use “<code>=</code>”, but rather “<code>:=</code>”. (In fact, as Dafny uses “<code>==</code>” for equality, there is no use of a single equals sign in Dafny expressions.) Simple statements must be followed by a semicolon, and whitespace and comments (<code>//</code> and <code>/**/</code>) are ignored. To return a value from a method, the value is assigned to one of the named return values sometime before a <code>return</code> statement. In fact, the return values act very much like local variables, and can be assigned to more than once. The input parameters, however, are read only. <code>return</code> statements are used when one wants to return before reaching the end of the body block of the method. Return statements can be just the <code>return</code> keyword (where the current value of the out parameters are used), or they can take a list of values to return. There are also compound statements, such as <code>if</code> statements. <code>if</code> statements do not require parentheses around the boolean condition, and act as one would expect:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>One caveat is that they always need braces around the branches, even if the branch only contains a single statement (compound or otherwise). Here the <code>if</code> statement checks whether <code>x</code> is less than zero, using the familiar comparison operator syntax, and returns the absolute value as appropriate. (Other comparison operators are <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>!=</code> and <code>==</code>, with the expected meaning. See the reference for more on operators.)</p> <h3 id="pre-and-postconditions"><a href="#pre-and-postconditions" class="header-anchor">#</a> Pre- and Postconditions</h3> <p>None of what we have seen so far has any specifications: the code could be written in virtually any imperative language (with appropriate considerations for multiple return values). The real power of Dafny comes from the ability to annotate these methods to specify their behavior. For example, one property that we observe with the <code>Abs</code> method is that the result is always greater than or equal to zero, regardless of the input. We could put this observation in a comment, but then we would have no way to know whether the method actually had this property. Further, if someone came along and changed the method, we wouldn’t be guaranteed that the comment was changed to match. With annotations, we can have Dafny prove that the property we claim of the method is true. There are several ways to give annotations, but some of the most common, and most basic, are method <em>pre-</em> and <em>postconditions</em>.</p> <p>This property of the <code>Abs</code> method, that the result is always non-negative, is an example of a postcondition: it is something that is true after the method returns. Postconditions, declared with the <code>ensures</code> keyword, are given as part of the method’s declaration, after the return values (if present) and before the method body. The keyword is followed by the boolean expression. Like an <code>if</code> or <code>while</code> condition and most specifications, a postcondition is always a boolean expression: something that can be <em>true</em> or <em>false</em>. In the case of the <code>Abs</code> method, a reasonable postcondition is the following:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>You can see here why return values are given names. This makes them easy to refer to in the postcondition of a method. When the expression is true, we say that the postcondition <em>holds</em>. The postcondition must hold for every invocation of the function, and for every possible return point (including the implicit one at the end of the function body). In this case, the only property we are expressing is that the return value is always at least zero.</p> <p>Sometimes there are multiple properties that we would like to establish about our code. In this case, we have two options. We can either join the two conditions together with the boolean “and” operator (<code>&amp;&amp;</code>), or we can write multiple <code>ensures</code> specifications. The latter is basically the same as the former, but it seperates distinct properties. For example, the return value names from the <code>MultipleReturns</code> method might lead one to guess the following postconditions:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+   ensures less &lt; x
+   ensures x &lt; more
+{
+   more := x + y;
+   less := x - y;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>The postcondition can also be written:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+   ensures less &lt; x &amp;&amp; x &lt; more
+{
+   more := x + y;
+   less := x - y;
+}
+   ensures less &lt; x &amp;&amp; x &lt; more
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>or even:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+   ensures less &lt; x &lt; more
+{
+   more := x + y;
+   less := x - y;
+}
+   ensures less &lt; x &lt; more
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>because of the chaining comparison operator syntax in Dafny. (In general, most of the comparison operators can be chained, but only “in one direction”, i.e. not mixing “greater than” and “less than”. See the reference for details.)</p> <p>The first way of expressing the postconditions separates the “less” part from the “more” part, which may be desirable. Another thing to note is that we have included one of the input parameters in the postcondition. This is useful because it allows us to relate the input and output of the method to one another (this works because input parameters are read only, and so are the same at the end as they were at the beginning).</p> <p>Dafny actually rejects this program, claiming that the first postcondition does not hold (i.e. is not true). This means that Dafny wasn’t able to prove that this annotation holds every time the method returns. In general, there are two main causes for Dafny verification errors: specifications that are inconsistent with the code, and situations where it is not “clever” enough to prove the required properties. Differentiating between these two possibilities can be a difficult task, but fortunately, Dafny and the Boogie/Z3 system on which it is based are pretty smart, and will prove matching code and specifications with a minimum of fuss.</p> <p>In this situation, Dafny is correct in saying there is an error with the code. The key to the problem is that <code>y</code> is an integer, so it can be negative. If <code>y</code> is negative (or zero), then <code>more</code> can actually be smaller than or equal to <code>x</code>. Our method will not work as intended unless <code>y</code> is strictly larger than zero. This is precisely the idea of a <em>precondition</em>. A precondition is similar to a postcondition, except that it is something that must be true <em>before</em> a method is called. When you call a method, it is your job to establish (make true) the preconditions, something Dafny will enforce using a proof. Likewise, when you write a method, you get to assume the preconditions, but you must establish the postconditions. The caller of the method then gets to assume that the postconditions hold after the method returns.</p> <p>preconditions have their own keyword, <code>requires</code>. We can give the necessary precondition to <code>MultipleReturns</code> as below:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>method MultipleReturns(x: int, y: int) returns (more: int, less: int)
+   requires 0 &lt; y
+   ensures less &lt; x &lt; more
+{
+   more := x + y;
+   less := x - y;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>Like postconditions, multiple preconditions can be written either with the boolean “and” operator (<code>&amp;&amp;</code>), or by multiple <code>requires</code> keywords. Traditionally, <code>requires</code> precede <code>ensures</code> in the source code, though this is not strictly necessary (although the order of the <code>requires</code> and <code>ensures</code> annotations with respect to others of the same type can sometimes matter, as we will see later). With the addition of this condition, Dafny now verifies the code as correct, because this assumption is all that is needed to guarantee the code in the method body is correct.</p> <p><strong>Exercise 0.</strong> <em>Write a method <code>Max</code> that takes two integer parameters and returns their maximum. Add appropriate annotations and make sure your code verifies.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Max(a: int, b: int) returns (c: int)
+  // What postcondition should go here, so that the function operates as expected?
+  // Hint: there are many ways to write this.
+{
+  // fill in the code here
+}
+method Max(a: int, b: int) returns (c: int)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>Not all methods necessarily have preconditions. For example, the <code>Abs</code> method we have already seen is defined for all integers, and so has no preconditions (other than the trivial requirement that its argument is an integer, which is enforced by the type system). Even though it has no need of preconditions, the <code>Abs</code> function as it stands now is not very useful. To investigate why, we need to make use of another kind of annotation, the <em>assertion</em>.</p> <h3 id="assertions"><a href="#assertions" class="header-anchor">#</a> Assertions</h3> <p>Unlike pre- and postconditions, an assertion is placed somewhere in the middle of a method. Like the previous two annotations, an assertion has a keyword, <code>assert</code>, followed by the boolean expression and the semicolon that terminates simple statements. An assertion says that a particular expression always holds when control reaches that part of the code. For example, the following is a trivial use of an assertion inside a dummy method:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Testing()
+{
+   assert 2 &lt; 3;
+   // Try &quot;asserting&quot; something that is not true.
+   // What does Dafny output?
+}
+method Testing()
+{
+   assert 2 &lt; 3;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>Dafny proves this method correct, as <code>2</code> is always less than <code>3</code>. Asserts have several uses, but chief among them is checking whether your expectations of what is true at various points is actually true. You can use this to check basic arithmetical facts, as above, but they can also be used in more complex situations. Assertions are a powerful tool for debugging annotations, by checking what Dafny is able to prove about your code. For example, we can use it to investigate what Dafny knows about the <code>Abs</code> function.</p> <p>To do this, we need one more concept: local variables. Local variables behave exactly as you would expect, except maybe for a few issues with shadowing. (See the reference for details.) Local variables are declared with the <code>var</code> keyword, and can optionally have type declarations. Unlike method parameters, where types are required, Dafny can infer the types of local variables in almost all situations. This is an example of an initialized, explicitly typed variable declaration:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   var x: int := 5;
+}
+   var x: int := 5;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>The type annotation can be dropped in this case:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   var x := 5;
+}
+   var x := 5;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Multiple variables can be declared at once:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   var x, y, z: bool := 1, 2, true;
+}
+   var x, y, z: bool := 1, 2, true;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Explicit type declarations only apply to the immediately preceding variable, so here the <code>bool</code> declaration only applies to <code>z</code>, and not <code>x</code> or <code>y</code>, which are both inferred to be <code>int</code>s. We needed variables because we want to talk about the return value of the <code>Abs</code> method. We cannot put <code>Abs</code> inside a specification directly, as the method could change memory state, among other problems. So we capture the return value of a call to <code>Abs</code> as follows:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Testing()
+{
+   var v := Abs(3);
+   assert 0 &lt;= v;
+}
+// use definition of Abs() from before.
+method Testing()
+{
+   var v := Abs(3);
+   assert 0 &lt;= v;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>This is an example of a situation where we can ask Dafny what it knows about the values in the code, in this case <code>v</code>. We do this by adding assertions, like the one above. Every time Dafny encounters an assertion, it tries to prove that the condition holds for all executions of the code. In this example, there is only one control path through the method, and Dafny is able to prove the annotation easily because it is exactly the postcondition of the <code>Abs</code> method. <code>Abs</code> guarantees that the return value is non-negative, so it trivially follows that <code>v</code>, which is this value, is non-negative after the call to <code>Abs</code>.</p> <p><strong>Exercise 1.</strong> <em>Write a test method that calls your <code>Max</code> method from Exercise 0 and then asserts something about the result.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Max(a: int, b:int) returns (c: int)
+  // Use your code from Exercise 0
+method Testing() {
+  // Assert some things about Max. Does it operate as you expect?
+  // If it does not, can you think of a way to fix it?
+}
+method Testing() { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>But we know something stronger about the <code>Abs</code> method. In particular, for non-negative <code>x</code>, <code>Abs(x) == x</code>. Specifically, in the above program, the value of <code>v</code> is 3. If we try adding an assertion (or changing the existing one) to say:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Testing()
+{
+   var v := Abs(3);
+   assert 0 &lt;= v;
+   assert v == 3;
+}
+   assert v == 3;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>we find that Dafny cannot prove our assertion, and gives an error. The reason this happens is that Dafny “forgets” about the body of every method except the one it is currently working on. This simplifies Dafny’s job tremendously, and is one of the reasons it is able to operate at reasonable speeds. It also helps us reason about our programs by breaking them apart and so we can analyze each method in isolation (given the annotations for the other methods). We don’t care at all what happens inside each method when we call it, as long as it satisfies its annotations. This works because Dafny will prove that all the methods satisfy their annotations, and refuse to compile our code until they do.</p> <p>For the <code>Abs</code> method, this means that the only thing Dafny knows in the Testing method about the value returned from <code>Abs</code> is what the postconditions say about it, <em>and nothing more</em>. This means that Dafny won’t know the nice property about <code>Abs</code> and non-negative integers unless we tell it by putting this in the postcondition of the <code>Abs</code> method. Another way to look at it is to consider the method annotations (along with the type of the parameters and return values) as fixing the behavior of the method. Everywhere the method is used, we assume that it is any one of the conceivable method(s) that satisfies the pre- and postconditions. In the <code>Abs</code> case, we might have written:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   y := 0;
+}
+method Testing()
+{
+   var v := Abs(3);
+   assert 0 &lt;= v;
+   // this stil does not verify, but now it is actually not true:
+   assert v == 3;
+}
+method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   y := 0;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>This method satisfies the postconditions, but clearly the program fragment:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+{
+   y := 0;
+}
+method Testing()
+{
+   var v := Abs(3);
+   assert 0 &lt;= v;
+   assert v == 3;
+}
+   var v := Abs(3);
+   assert v == 3;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>would not be true in this case. Dafny is considering, in an abstract way, all methods with those annotations. The mathematical absolute value certainly is such a method, but so are all methods that return a positive constant, for example. We need stronger postconditions to eliminate these other possibilities, and “fix” the method down to exactly the one we want. We can partially do this with the following:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+{
+   // body as before
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>This expresses exactly the property we discussed before, that the absolute value is the same for non-negative integers. The second ensures is expressed via the implication operator, which basically says that the left hand side implies the right in the mathematical sense (it binds more weakly than boolean “and” and comparisons, so the above says <code>0 &lt;= x</code> implies <code>y == x</code>). The left and right sides must both be boolean expressions.</p> <p>The postcondition says that after <code>Abs</code> is called, if the value of <code>x</code> was non-negative, then <code>y</code> is equal to <code>x</code>. One caveat of the implication is that it is still true if the left part (the antecedent) is false. So the second postcondition is trivially true when <code>x</code> is negative. In fact, the only thing that the annotations say when <code>x</code> is negative is that the result, <code>y</code>, is positive. But this is still not enough to fix the method, so we must add another postcondition, to make the following complete annotation covering all cases:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+   ensures x &lt; 0 ==&gt; y == -x
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+   ensures x &lt; 0 ==&gt; y == -x
+{
+   // body as before
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>These annotations are enough to require that our method actually computes the absolute value of <code>x</code>. These postconditions are not the only way to express this property. For example, this is a different, and somewhat shorter, way of saying the same thing:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   ensures 0 &lt;= y &amp;&amp; (y == x || y == -x)
+{
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+   ensures 0 &lt;= y &amp;&amp; (y == x || y == -x)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>In general, there can be many ways to write down a given property. Most of the time it doesn’t matter which one you pick, but a good choice can make it easier to understand the stated property and verify that it is correct.</p> <p>But we still have an issue: there seems to be a lot of duplication. The body of the method is reflected very closely in the annotations. While this is correct code, we want to eliminate this redundancy. As you might guess, Dafny provides a means of doing this: functions.</p> <p><strong>Exercise 2.</strong> <em>Using a precondition, change <code>Abs</code> to say it can only be called on negative values. Simplify the body of <code>Abs</code> into just one return statement and make sure the method still verifies.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   // Add a precondition here.
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+   ensures x &lt; 0 ==&gt; y == -x
+{
+   // Simplify the body to just one return statement
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+method Abs(x: int) returns (y: int) { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>Exercise 3.</strong> <em>Keeping the postconditions of <code>Abs</code> the same as above, change the body of <code>Abs</code> to just <code>y := x + 2</code>. What precondition do you need to annotate the method with in order for the verification to go through? What precondition do you need if the body is <code>y := x + 1</code>? What does that precondition say about when you can call the method?</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Abs(x: int) returns (y: int)
+   // Add a precondition here so that the method verifies.
+   // Don't change the postconditions.
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+   ensures x &lt; 0 ==&gt; y == -x
+{
+  y:= x + 2;
+}
+method Abs2(x: int) returns (y: int)
+   // Add a precondition here so that the method verifies.
+   // Don't change the postconditions.
+   ensures 0 &lt;= y
+   ensures 0 &lt;= x ==&gt; y == x
+   ensures x &lt; 0 ==&gt; y == -x
+{
+  y:= x + 1;
+}
+method Abs(x: int) returns (y: int) { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="functions"><a href="#functions" class="header-anchor">#</a> Functions</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>function abs(x: int): int
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>This declares a function called <code>abs</code> which takes a single integer, and returns an integer (the second <code>int</code>). Unlike a method, which can have all sorts of statements in its body, a function body must consist of exactly one expression, with the correct type. Here our body must be an integer expression. In order to implement the absolute value function, we need to use an <em><code>if</code> expression</em>. An <code>if</code> expression is like the ternary operator in other languages.</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>function abs(x: int): int
+{
+   if x &lt; 0 then -x else x
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>Obviously, the condition must be a boolean expression, and the two branches must have the same type. You might wonder why anyone would bother with functions, if they are so limited compared to methods. The power of functions comes from the fact that they can be <em>used directly in specifications</em>. So we can write:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function abs(x: int): int
+{
+   if x &lt; 0 then -x else x
+}
+method m()
+{
+   assert abs(3) == 3;
+}
+   assert abs(3) == 3;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>In fact, not only can we write this statement directly without capturing to a local variable, we didn’t even need to write all the postconditions that we did with the method (though functions can and do have pre- and postconditions in general). The limitations of functions are precisely what let Dafny do this. Unlike methods, Dafny does not forget the body of a function when considering other functions. So it can expand the definition of <code>abs</code> in the above assertion and determine that the result is actually <code>3</code>.</p> <p><strong>Exercise 4.</strong> <em>Write a <strong>function</strong> <code>max</code> that returns the larger of two given integer parameters. Write a test method using an <code>assert</code> that checks that your function is correct.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function max(a: int, b: int): int
+{
+   // Fill in an expression here.
+}
+method Testing() {
+  // Add assertions to check max here.
+}
+function max(a: int, b: int): int { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>One caveat of functions is that not only can they appear in annotations, they can only appear in annotations. One cannot write:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   var v := abs(3);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>as this is not an annotation. Functions are never part of the final compiled program, they are just tools to help us verify our code. Sometimes it is convenient to use a function in real code, so one can define a <code>function method</code>, which can be called from real code. Note that there are restrictions on what functions can be function methods (See the reference for details).</p> <p><strong>Exercise 5.</strong> <em>Change your test method from Exercise 4 to capture the value of <code>max</code> to a variable, and then do the checks from Exercise 4 using the variable. Dafny will reject this program because you are calling <code>max</code> from real code. Fix this problem using a <code>function method</code>.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function max(a: int, b: int): int
+{
+   // Use your code from Exercise 4
+}
+method Testing() {
+  // Add assertions to check max here. Be sure to capture it to a local variable
+}
+function max(a: int, b: int): int { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>Exercise 6.</strong> <em>Now that we have an <code>abs</code> function, change the postcondition of method <code>Abs</code> to make use of <code>abs</code>. After confirming the method still verifies, change the body of <code>Abs</code> to also use <code>abs</code>. (After doing this, you will realize there is not much point in having a method that does exactly the same thing as a function method.)</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function abs(x: int): int
+{
+   if x &lt; 0 then -x else x
+}
+method Abs(x: int) returns (y: int)
+  // Use abs here, then confirm the method still verifies.
+{
+   // Then change this body to also use abs.
+   if x &lt; 0 {
+      return -x;
+   } else {
+      return x;
+   }
+}
+function abs(x: int): int
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>Unlike methods, functions can appear in expressions. Thus we can do something like implement the mathematical Fibonacci function:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Here we use <code>nat</code>s, the type of natural numbers (non-negative integers), which is often more convenient than annotating everything to be non-negative. It turns out that we could make this function a function method if we wanted to. But this would be extremely slow, as this version of calculating the Fibonacci numbers has exponential complexity. There are much better ways to calculate the Fibonacci function. But this function is still useful, as we can have Dafny prove that a fast version really matches the mathematical definition. We can get the best of both worlds: the guarantee of correctness and the performance we want.</p> <p>We can start by defining a method like the following:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+   // ...
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>We haven’t written the body yet, so Dafny will complain that our postcondition doesn’t hold. We need an algorithm to calculate the <code>n</code>th Fibonacci number. The basic idea is to keep a counter, and repeatedly calculate adjacent pairs of Fibonacci numbers until the desired number is reached. To do this, we need a loop. In Dafny, this is done via a <em><code>while</code> loop</em>. A while loop looks like the following:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i := 0;
+   while i &lt; n
+   {
+      i := i + 1;
+   }
+}
+   var i := 0;
+   while i &lt; n
+   {
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>This is a trivial loop that just increments <code>i</code> until it reaches <code>n</code>. This will form the core of our loop to calculate Fibonacci numbers.</p> <h3 id="loop-invariants"><a href="#loop-invariants" class="header-anchor">#</a> Loop Invariants</h3> <p><code>while</code> loops present a problem for Dafny. There is no way for Dafny to know in advance how many times the code will go around the loop. But Dafny needs to consider all paths through a program, which could include going around the loop any number of times. To make it possible for Dafny to work with loops, you need to provide <em>loop invariants</em>, another kind of annotation.</p> <p>A loop invariant is an expression that holds upon entering a loop, and after every execution of the loop body. It captures something that is invariant, i.e. does not change, about every step of the loop. Now, obviously we are going to want to change variables, etc. each time around the loop, or we wouldn’t need the loop. Like pre- and postconditions, an invariant is a <em>property</em> that is preserved for each execution of the loop, expressed using the same boolean expressions we have seen. For example, we see in the above loop that if <code>i</code> starts off positive, then it stays positive. So we can add the invariant, using its own keyword, to the loop:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i := 0;
+   while i &lt; n
+      invariant 0 &lt;= i
+   {
+      i := i + 1;
+   }
+}
+   var i := 0;
+   while i &lt; n
+      invariant 0 &lt;= i
+   {
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>When you specify an invariant, Dafny proves two things: the invariant holds upon entering the loop, and it is preserved by the loop. By preserved, we mean that assuming that the invariant holds at the beginning of the loop, we must show that executing the loop body once makes the invariant hold again. Dafny can only know upon analyzing the loop body what the invariants say, in addition to the loop guard (the loop condition). Just as Dafny will not discover properties of a method on its own, it will not know any but the most basic properties of a loop are preserved unless it is told via an invariant.</p> <p>In our example, the point of the loop is to build up the Fibonacci numbers one (well, two) at a time until we reach the desired number. After we exit the loop, we will have that <code>i == n</code>, because <code>i</code> will stop being incremented when it reaches <code>n</code>. We can use our assertion trick to check to see if Dafny sees this fact as well:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i: int := 0;
+   while i &lt; n
+      invariant 0 &lt;= i
+   {
+      i := i + 1;
+   }
+   assert i == n;
+}
+   var i: int := 0;
+   while i &lt; n
+      invariant 0 &lt;= i
+   {
+      i := i + 1;
+   }
+   assert i == n;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>We find that this assertion fails. As far as Dafny knows, it is possible that <code>i</code> somehow became much larger than <code>n</code> at some point during the loop. All it knows after the loop exits (i.e. in the code after the loop) is that the loop guard failed, and the invariants hold. In this case, this amounts to <code>n &lt;= i</code> and <code>0 &lt;= i</code>. But this is not enough to guarantee that <code>i == n</code>, just that <code>n &lt;= i</code>. Somehow we need to eliminate the possibility of <code>i</code> exceeding <code>n</code>. One first guess for solving this problem might be the following:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i: int := 0;
+   while i &lt; n
+      invariant 0 &lt;= i &lt; n
+   {
+      i := i + 1;
+   }
+}
+   var i := 0;
+   while i &lt; n
+      invariant 0 &lt;= i &lt; n
+   {
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>This does not verify, as Dafny complains that the invariant is not preserved (also known as not maintained) by the loop. We want to be able to say that after the loop exits, then all the invariants hold. Our invariant holds for every execution of the loop <em>except</em> for the very last one. Because the loop body is executed only when the loop guard holds, in the last iteration <code>i</code> goes from <code>n - 1</code> to <code>n</code>, but does not increase further, as the loop exits. Thus, we have only omitted exactly one case from our invariant, and repairing it is relatively easy:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i: int := 0;
+   while i &lt; n
+      invariant 0 &lt;= i &lt;= n
+   {
+      i := i + 1;
+   }
+}
+...
+   invariant 0 &lt;= i &lt;= n
+...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Now we can say both that <code>n &lt;= i</code> from the loop guard and <code>0 &lt;= i &lt;= n</code> from the invariant, which allows Dafny to prove the assertion <code>i == n</code>. The challenge in picking loop invariants is finding one that is preserved by the loop, but also that lets you prove what you need after the loop has executed.</p> <p><strong>Exercise 7.</strong> <em>Change the loop invariant to <code>0 &lt;= i &lt;= n+2</code>. Does the loop still verify? Does the assertion <code>i == n</code> after the loop still verify?</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i: int := 0;
+   while i &lt; n
+      invariant 0 &lt;= i &lt;= n  // Change this. What happens?
+   {
+      i := i + 1;
+   }
+   assert i == n;
+}
+   invariant 0 &lt;= i &lt;= n+2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>Exercise 8.</strong> <em>With the original loop invariant, change the loop guard from <code>i &lt; n</code> to <code>i != n</code>. Do the loop and the assertion after the loop still verify? Why or why not?</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m(n: nat)
+{
+   var i: int := 0;
+   while i &lt; n  // Change this. What happens?
+      invariant 0 &lt;= i &lt;= n
+   {
+      i := i + 1;
+   }
+   assert i == n;
+}
+   while i != n ...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>In addition to the counter, our algorithm called for a pair of numbers which represent adjacent Fibonacci numbers in the sequence. Unsurprisingly, we will have another invariant or two to relate these numbers to each other and the counter. To find these invariants, we employ a common Dafny trick: working backwards from the postconditions.</p> <p>Our postcondition for the Fibonacci method is that the return value <code>b</code> is equal to <code>fib(n)</code>. But after the loop, we have that <code>i == n</code>, so we need <code>b == fib(i)</code> at the end of the loop. This might make a good invariant, as it relates something to the loop counter. This observation is surprisingly common throughout Dafny programs. Often a method is just a loop that, when it ends, makes the postcondition true by having a counter reach another number, often an argument or the length of an array or sequence. So we have that the variable <code>b</code>, which is conveniently our out parameter, will be the current Fibonacci number:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   invariant b == fib(i)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>We also note that in our algorithm, we can compute any Fibonacci number by keeping track of a pair of numbers, and summing them to get the next number. So we want a way of tracking the previous Fibonacci number, which we will call <code>a</code>. Another invariant will express that number’s relation to the loop counter. The invariants are:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   invariant a == fib(i - 1)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>At each step of the loop, the two values are summed to get the next leading number, while the trailing number is the old leading number. Using a parallel assignment, we can write a loop that performs this operation:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+   var i := 1;
+   var a := 0;
+       b := 1;
+   while i &lt; n
+      invariant 0 &lt; i &lt;= n
+      invariant a == fib(i - 1)
+      invariant b == fib(i)
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+}
+   var i := 1;
+   var a := 0;
+       b := 1;
+   while i &lt; n
+      invariant 0 &lt; i &lt;= n
+      invariant a == fib(i - 1)
+      invariant b == fib(i)
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><p>Here <code>a</code> is the trailing number, and <code>b</code> is the leading number. The parallel assignment means that the entire right hand side is calculated before the assignments to the variables are made. Thus <code>a</code> will get the old value of <code>b</code>, and <code>b</code> will get the sum of the two old values, which is precisely the behavior we want.</p> <p>We also have made a change to the loop counter <code>i</code>. Because we also want to track the trailing number, we can’t start the counter at zero, as otherwise we would have to calculate a negative Fibonacci number. The problem with doing this is that the loop counter invariant may not hold when we enter the loop. The only problem is when <code>n</code> is zero. This can be eliminated as a special case, by testing for this condition at the beginning of the loop. The completed Fibonacci method becomes:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+   if n == 0 { return 0; }
+   var i: int := 1;
+   var a := 0;
+       b := 1;
+   while i &lt; n
+      invariant 0 &lt; i &lt;= n
+      invariant a == fib(i - 1)
+      invariant b == fib(i)
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+   if n == 0 { return 0; }
+   var i: int := 1;
+   var a := 0;
+       b := 1;
+   while i &lt; n
+      invariant 0 &lt; i &lt;= n
+      invariant a == fib(i - 1)
+      invariant b == fib(i)
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p>Dafny no longer complains about the loop invariant not holding, because if <code>n</code> were zero, it would return before reaching the loop. Dafny is also able to use the loop invariants to prove that after the loop, <code>i == n</code> and <code>b == fib(i)</code>, which together imply the postcondition, <code>b == fib(n)</code>.</p> <p><strong>Exercise 9.</strong> <em>The <code>ComputeFib</code> method above is more complicated than necessary. Write a simpler program by not introducing <code>a</code> as the Fibonacci number that precedes <code>b</code>, but instead introducing a variable <code>c</code> that succeeds <code>b</code>. Verify your program is correct according to the mathematical definition of Fibonacci.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)  // Do not change this postcondition
+{
+   // Change the method body to instead use c as described.
+   // You will need to change both the initialization and the loop.
+   if n == 0 { return 0; }
+   var i: int := 1;
+   var a := 0;
+       b := 1;
+   while i &lt; n
+      invariant 0 &lt; i &lt;= n
+      invariant a == fib(i - 1)
+      invariant b == fib(i)
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+}
+method ComputeFib(n: nat) returns (b: nat)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p><strong>Exercise 10.</strong> <em>Starting with the completed <code>ComputeFib</code> method above, delete the <code>if</code> statement and initialize <code>i</code> to <code>0</code>, <code>a</code> to <code>1</code>, and <code>b</code> to <code>0</code>. Verify this new program by adjusting the loop invariants to match the new behavior.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+method ComputeFib(n: nat) returns (b: nat)
+   ensures b == fib(n)
+{
+   var i: int := 0;
+   var a := 1;
+       b := 0;
+   while i &lt; n
+      // Fill in the invariants here.
+   {
+      a, b := b, a + b;
+      i := i + 1;
+   }
+}
+method ComputeFib(n: nat) returns (b: nat)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>One of the problems with using invariants is that it is easy to forget to have the loop <em>make progress</em>, i.e. do work at each step. For example, we could have omitted the entire body of the loop in the previous program. The invariants would be correct, because they are still true upon entering the loop, and since the loop doesn’t change anything, they would be preserved by the loop. We know that <em>if</em> we exit the loop, then we can assume the negation of the guard and the invariants, but this says nothing about what happens if we never exit the loop. Thus we would like to make sure the loop ends at some point, which gives us a stronger correctness guarantee (the technical term is <em>total correctness</em>).</p> <h3 id="termination"><a href="#termination" class="header-anchor">#</a> Termination</h3> <p>Dafny proves that code terminates, i.e. does not loop forever, by using <code>decreases</code> annotations. For many things, Dafny is able to guess the right annotations, but sometimes it needs to be made explicit. In fact, for all of the code we have seen so far, Dafny has been able to do this proof on its own, which is why we haven’t seen the <code>decreases</code> annotation explicitly yet. There are two places Dafny proves termination: loops and recursion. Both of these situations require either an explicit annotation or a correct guess by Dafny.</p> <p>A <code>decreases</code> annotation, as its name suggests, gives Dafny an expression that decreases with every loop iteration or recursive call. There are two conditions that Dafny needs to verify when using a <code>decreases</code> expression: that the expression actually gets smaller, and that it is bounded. Many times, an integral value (natural or plain integer) is the quantity that decreases, but other things that can be used as well. (See the reference for details.) In the case of integers, the bound is assumed to be zero. For example, the following is a proper use of <code>decreases</code> on a loop (with its own keyword, of course):</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m ()
+{
+   var i := 20;
+   while 0 &lt; i
+      invariant 0 &lt;= i
+      decreases i
+   {
+      i := i - 1;
+   }
+}
+   while 0 &lt; i
+      invariant 0 &lt;= i
+      decreases i
+   {
+      i := i - 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>Here Dafny has all the ingredients it needs to prove termination. The variable <code>i</code> gets smaller each loop iteration, and is bounded below by zero. This is fine, except the loop is backwards from most loops, which tend to count up instead of down. In this case, what decreases is not the counter itself, but rather the distance between the counter and the upper bound. A simple trick for dealing with this situation is given below:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   var i, n := 0, 20;
+   while i &lt; n
+      invariant 0 &lt;= i &lt;= n
+      decreases n - i
+   {
+      i := i + 1;
+   }
+}
+   while i &lt; n
+      invariant 0 &lt;= i &lt;= n
+      decreases n - i
+   {
+      i := i + 1;
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>This is actually Dafny’s guess for this situation, as it sees <code>i &lt; n</code> and assumes that <code>n - i</code> is the quantity that decreases. The upper bound of the loop invariant implies that <code>0 &lt;= n – i</code>, and gives Dafny a lower bound on the quantity. This also works when the bound <code>n</code> is not constant, such as in the binary search algorithm, where two quantities approach each other, and neither is fixed.</p> <p><strong>Exercise 11.</strong> <em>In the loop above, the invariant <code>i &lt;= n</code> and the negation of the loop guard allow us to conclude <code>i == n</code> after the loop (as we checked previously with an <code>assert</code>. Note that if the loop guard were instead written as <code>i != n</code> (as in Exercise 8), then the negation of the guard immediately gives <code>i == n</code> after the loop, regardless of the loop invariant. Change the loop guard to <code>i != n</code> and delete the invariant annotation. Does the program verify? What happened?</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   var i, n := 0, 20;
+   while i != n
+      decreases n - i
+   {
+      i := i + 1;
+   }
+}
+   while i != n
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>The other situation that requires a termination proof is when methods or functions are recursive. Similarly to looping forever, these methods could potentially call themselves forever, never returning to their original caller. When Dafny is not able to guess the termination condition, an explicit decreases clause can be given along with pre- and postconditions, as in the unnecessary annotation for the fib function:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>function fib(n: nat): nat
+   decreases n
+{
+   if n == 0 then 0 else
+   if n == 1 then 1 else
+                  fib(n - 1) + fib(n - 2)
+}
+function fib(n: nat): nat
+   decreases n
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>As before, Dafny can guess this condition on its own, but sometimes the decreasing condition is hidden within a field of an object or somewhere else where Dafny cannot find it on its own, and it requires an explicit annotation.</p> <h3 id="arrays"><a href="#arrays" class="header-anchor">#</a> Arrays</h3> <p>All that we have considered is fine for toy functions and little mathematical exercises, but it really isn’t helpful for real programs. So far we have only considered a handful of values at a time in local variables. Now we turn our attention to arrays of data. Arrays are a built-in part of the language, with their own type, <code>array&lt;T&gt;</code>, where <code>T</code> is another type. For now we only consider arrays of integers, <code>array&lt;int&gt;</code>. Arrays can be <code>null</code>, and have a built-in length field, <code>a.Length</code>. Element access uses the standard bracket syntax and are indexed from zero, so <code>a[3]</code> is preceded by the 3 elements <code>a[0]</code>, <code>a[1]</code>, and <code>a[2]</code>, in that order. All array accesses must be proven to be within bounds, which is part of Dafny’s no-runtime-errors safety guarantee. Because bounds checks are proven at verification time, no runtime checks need to be made. To create a new array, it must be allocated with the <code>new</code> keyword, but for now we will only work with methods that take a previously allocated array as an argument. (See the tutorial on memory for more on allocation.)</p> <p>One of the most basic things we might want to do with an array is search through it for a particular key, and return the index of a place where we can find the key if it exists. We have two outcomes for a search, with a different correctness condition for each. If the algorithm returns an index (i.e. non-negative integer), then the key should be present at that index. This might be expressed as follows:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+{
+   // Can you write code that satisfies the postcondition?
+   // Hint: you can do it with one statement.
+}
+method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+{
+   // Open in editor for a challenge...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>The array index here is safe because the implication operator is <em>short circuiting</em>. Short circuiting means if the left part is false, then the implication is already true regardless of the truth value of the second part, and thus it does not need to be evaluated. Using the short circuiting property of the implication operator, along with the boolean “and” (<code>&amp;&amp;</code>), which is also short circuiting, is a common Dafny practice. The condition <code>index &lt; a.Length</code> is necessary because otherwise the method could return a large integer which is not an index into the array. Together, the short circuiting behavior means that by the time control reaches the array access, <code>index</code> must be a valid index.</p> <p>If the key is not in the array, then we would like the method to return a negative number. In this case, we want to say that the method did not miss an occurrence of the key; in other words, that the key is not in the array. To express this property, we turn to another common Dafny tool: quantifiers.</p> <h3 id="quantifiers"><a href="#quantifiers" class="header-anchor">#</a> Quantifiers</h3> <p>A quantifier in Dafny most often takes the form of a forall expression, also called a universal quantifier. As its name suggests, this expression is true if some property holds for all elements of some set. For now, we will consider the set of integers. An example universal quantifier, wrapped in an assertion, is given below:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method m()
+{
+   assert forall k :: k &lt; k + 1;
+}
+   assert forall k :: k &lt; k + 1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>A quantifier introduces a temporary name for each element of the set it is considering. This is called the bound variable, in this case <code>k</code>. The bound variable has a type, which is almost always inferred rather than given explicitly and is usually <code>int</code> anyway. (In general, one can have any number of bound variables, a topic we will return to later.) A pair of colons (<code>::</code>) separates the bound variable and its optional type from the quantified property (which must be of type <code>bool</code>). In this case, the property is that adding one to any integer makes a strictly larger integer. Dafny is able to prove this simple property automatically. Generally it is not very useful to quantify over infinite sets, such as all the integers. Instead, quantifiers are typically used to quantify over all elements in an array or data structure. We do this for arrays by using the implication operator to make the quantified property trivially true for values which are not indices:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   assert forall k :: 0 &lt;= k &lt; a.Length ==&gt; ...a[k]...;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>This says that some property holds for each element of the array. The implication makes sure that <code>k</code> is actually a valid index into the array before evaluating the second part of the expression. Dafny can use this fact not only to prove that the array is accessed safely, but also reduce the set of integers it must consider to only those that are indices into the array.</p> <p>With a quantifier, saying the key is not in the array is straightforward:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Thus our method postconditions become (with the addition of the non-nullity precondition on <code>a</code>):</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+{
+   // There are many ways to fill this in. Can you write one?
+}
+method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>We can fill in the body of this method in a number of ways, but perhaps the easiest is a linear search, implemented below:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+{
+   index := 0;
+   while index &lt; a.Length
+   {
+      if a[index] == key { return; }
+      index := index + 1;
+   }
+   index := -1;
+}
+   index := 0;
+   while index &lt; a.Length
+   {
+      if a[index] == key { return; }
+      index := index + 1;
+   }
+   index := -1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>As you can see, we have omitted the loop invariants on the <code>while</code> loop, so Dafny gives us a verification error on one of the postconditions. The reason we get an error is that Dafny does not know that the loop actually covers all the elements. In order to convince Dafny of this, we have to write an invariant that says that everything before the current index has already been looked at (and are not the key). Just like the postcondition, we can use a quantifier to express this property:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+{
+   index := 0;
+   while index &lt; a.Length
+      invariant forall k :: 0 &lt;= k &lt; index ==&gt; a[k] != key
+   {
+      if a[index] == key { return; }
+      index := index + 1;
+   }
+   index := -1;
+}
+   invariant forall k :: 0 &lt;= k &lt; index ==&gt; a[k] != key
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>This says that everything before, but excluding, the current index is not the key. Notice that upon entering the loop, <code>i</code> is zero, so the first part of the implication is always false, and thus the quantified property is always true. This common situation is known as <em>vacuous truth</em>: the quantifier holds because it is quantifying over an empty set of objects. This means that it is true when entering the loop. We test the value of the array before we extend the non-key part of the array, so Dafny can prove that this invariant is preserved. One problem arises when we try to add this invariant: Dafny complains about the index being out of range for the array access within the invariant.</p> <p>This code does not verify because there is no invariant on <code>index</code>, so it could be greater than the length of the array. Then the bound variable, <code>k</code>, could exceed the length of the array. To fix this, we put the standard bounds on <code>index</code>, <code>0 &lt;= index &lt;= a.Length</code>. Note that because we say <code>k &lt; index</code>, the array access is still protected from error even when <code>index == a.Length</code>. The use of a variable that is one past the end of a growing range is a common pattern when working with arrays, where it is often used to build a property up one element at a time. The complete method is given below:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>method Find(a: array&lt;int&gt;, key: int) returns (index: int)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == key
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != key
+{
+   index := 0;
+   while index &lt; a.Length
+      invariant 0 &lt;= index &lt;= a.Length
+      invariant forall k :: 0 &lt;= k &lt; index ==&gt; a[k] != key
+   {
+      if a[index] == key { return; }
+      index := index + 1;
+   }
+   index := -1;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>Exercise 12.</strong> <em>Write a method that takes an integer array, which it requires to have at least one element, and returns an index to the maximum of the array’s elements. Annotate the method with pre- and postconditions that state the intent of the method, and annotate its body with loop invariant to verify it.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>method FindMax(a: array&lt;int&gt;) returns (i: int)
+   // Annotate this method with pre- and postconditions
+   // that ensure it behaves as described.
+{
+   // Fill in the body that calculates the INDEX of the maximum.
+}
+method FindMax(a: array&lt;int&gt;) returns (i: int)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>A linear search is not very efficient, especially when many queries are made of the same data. If the array is sorted, then we can use the very efficient binary search procedure to find the key. But in order for us to be able to prove our implementation correct, we need some way to require that the input array actually is sorted. We could do this directly with a quantifier inside a requires clause of our method, but a more modular way to express this is through a <em>predicate</em>.</p> <h3 id="predicates"><a href="#predicates" class="header-anchor">#</a> Predicates</h3> <p>A predicate is a function which returns a boolean. It is a simple but powerful idea that occurs throughout Dafny programs. For example, we define the <em><code>sorted</code> predicate</em> over arrays of integers as a function that takes an array as an argument, and returns <code>true</code> if and only if that array is sorted in increasing order. The use of predicates makes our code shorter, as we do not need to write out a long property over and over. It can also make our code easier to read by giving a common property a name.</p> <p>There are a number of ways we could write the <code>sorted</code> predicate, but the easiest is to use a quantifier over the indices of the array. We can write a quantifier that expresses the property, “if <code>x</code> is before <code>y</code> in the array, then <code>x &lt;= y</code>,” as a quantifier over two bound variables:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Here we have two bound variables, <code>j</code> and <code>k</code>, which are both integers. The comparisons between the two guarantee that they are both valid indices into the array, and that <code>j</code> is before <code>k</code>. Then the second part says that they are ordered properly with respect to one another. Quantifiers are just a type of boolean valued expression in Dafny, so we can write the sorted predicate as:</p> <div class="language-{.edit} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+{
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Note that there is no return type, because predicates always return a boolean.</p> <p>Dafny rejects this code as given, claiming that the predicate cannot read <code>a</code>. Fixing this issue requires another annotation, the <em>reads annotation</em>.</p> <h3 id="framing"><a href="#framing" class="header-anchor">#</a> Framing</h3> <p>The sorted predicate is not able to access the array because the array was not included in the function’s <em>reading frame</em>. The reading frame of a function (or predicate) is all the memory locations that the function is allowed to read. The reason we might limit what a function can read is so that when we write to memory, we can be sure that functions that did not read that part of memory have the same value they did before. For example, we might have two arrays, one of which we know is sorted. If we did not put a reads annotation on the sorted predicate, then when we modify the unsorted array, we cannot determine whether the other array stopped being sorted. While we might be able to give invariants to preserve it in this case, it gets even more complex when manipulating data structures. In this case, framing is essential to making the verification process feasible.</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+   reads a
+{
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+predicate sorted(a: array&lt;int&gt;)
+   ...
+   reads a
+   ...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>A <code>reads</code> annotation is not a boolean expression, like the other annotations we have seen, and can appear anywhere along with the pre- and postconditions. Instead of a property that should be true, it specifies a set of memory locations that the function is allowed to access. The name of an array, like <code>a</code> in the above example, stands for all the elements of that array. One can also specify object fields and sets of objects, but we will not concern ourselves with those topics here. Dafny will check that you do not read any memory location that is not stated in the reading frame. This means that function calls within a function must have reading frames that are a subset of the calling function’s reading frame. One thing to note is that parameters to the function that are not memory locations do not need to be declared.</p> <p>Frames also affect methods. As you might have guessed, they are not required to list the things they read, as we have written a method which accesses an array with no <code>reads</code> annotation. Methods are allowed to read whatever memory they like, but they are required to list which parts of memory they modify, with a <em>modifies annotation</em>. They are almost identical to their <code>reads</code> cousins, except they say what can be changed, rather than what the value of the function depends on. In combination with reads, modification restrictions allow Dafny to prove properties of code that would otherwise be very difficult or impossible. <code>reads</code> and <code>modifies</code> are one of the tools that allow Dafny to work on one method at a time, because they restrict what would otherwise be arbitrary modifications of memory to something that Dafny can reason about.</p> <p>Note that framing only applies to the <em>heap</em>, or memory accessed through references. Local variables are not stored on the heap, so they cannot be mentioned in <code>reads</code> annotations. Note also that types like sets, sequences, and multisets are value types, and are treated like integers or local variables. Arrays and objects are reference types, and they are stored on the heap (though as always there is a subtle distinction between the reference itself and the value it points to.)</p> <p><strong>Exercise 13.</strong> <em>Modify the definition of the <code>sorted</code> predicate so that it returns true exactly when the array is sorted and all its elements are distinct.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+   reads a
+{
+   // Fill in a new body here.
+}
+predicate sorted(a: array&lt;int&gt;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>Exercise 14.</strong> <em>What happens if you remove the precondition <code>a != null</code>? Change the definition of <code>sorted</code> so that it allows its argument to be null but returns false if it is.</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   reads a
+{
+   // Change this definition to treat null arrays as &quot;not sorted&quot;.
+   // (i.e. return false for null arrays)
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+predicate sorted(a: array&lt;int&gt;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="binary-search"><a href="#binary-search" class="header-anchor">#</a> Binary Search</h3> <p>Predicates are usually used to make other annotations clearer:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+   reads a
+{
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+method BinarySearch(a: array&lt;int&gt;, value: int) returns (index: int)
+   requires a != null &amp;&amp; 0 &lt;= a.Length &amp;&amp; sorted(a)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == value
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != value
+{
+   // This one is a little harder. What should go here?
+}
+method BinarySearch(a: array&lt;int&gt;, key: int) returns (index: int)
+   requires a != null &amp;&amp; sorted(a)
+   ensures ...
+{
+   ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>We have the same postconditions that we did for the linear search, as the goal is the same. The difference is that now we know the array is sorted. Because Dafny can unwrap functions, inside the body of the method it knows this too. We can then use that property to prove the correctness of the search. The method body is given below:</p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+   reads a
+{
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+method BinarySearch(a: array&lt;int&gt;, value: int) returns (index: int)
+   requires a != null &amp;&amp; 0 &lt;= a.Length &amp;&amp; sorted(a)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == value
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != value
+{
+   var low, high := 0, a.Length;
+   while low &lt; high
+      invariant 0 &lt;= low &lt;= high &lt;= a.Length
+      invariant forall i ::
+         0 &lt;= i &lt; a.Length &amp;&amp; !(low &lt;= i &lt; high) ==&gt; a[i] != value
+   {
+      var mid := (low + high) / 2;
+      if a[mid] &lt; value
+      {
+         low := mid + 1;
+      }
+      else if value &lt; a[mid]
+      {
+         high := mid;
+      }
+      else
+      {
+         return mid;
+      }
+   }
+   return -1;
+}
+   var low, high := 0, a.Length;
+   while low &lt; high
+      invariant 0 &lt;= low &lt;= high &lt;= a.Length
+      invariant forall i ::
+         0 &lt;= i &lt; a.Length &amp;&amp; !(low &lt;= i &lt; high) ==&gt; a[i] != value
+   {
+      var mid := (low + high) / 2;
+      if a[mid] &lt; value
+      {
+         low := mid + 1;
+      }
+      else if value &lt; a[mid]
+      {
+         high := mid;
+      }
+      else
+      {
+         return mid;
+      }
+   }
+   return -1;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br></div></div><p>This is a fairly standard binary search implementation. First we declare our range to search over. This can be thought of as the remaining space where the key could possibly be. The range is inclusive-exclusive, meaning it encompasses indices [<code>low</code>, <code>high</code>). The first invariant expresses the fact that this range is within the array. The second says that the key is not anywhere outside of this range. In the first two branches of the <code>if</code> chain, we find the element in the middle of our range is not the key, and so we move the range to exclude that element and all the other elements on the appropriate side of it. We need the addition of one when moving the lower end of the range because it is inclusive on the low side. If we do not add one, then the loop may continue forever when <code>mid == low</code>, which happens when <code>low + 1 == high</code>. We could change this to say that the loop exits when <code>low</code> and <code>high</code> are one apart, but this would mean we would need an extra check after the loop to determine if the key was found at the one remaining index. In the above formulation, this is unnecessary because when <code>low == high</code>, the loop exits. But this means that no elements are left in the search range, so the key was not found. This can be deduced from the loop invariant:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>   invariant forall i ::
+               0 &lt;= i &lt; a.Length &amp;&amp; !(low &lt;= i &lt; high) ==&gt; a[i] != value
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>When <code>low == high</code>, the negated condition in the first part of the implication is always true (because no <code>i</code> can be both at least and strictly smaller than the same value). Thus the invariant says that all elements in the array are not the key, and the second postcondition holds. As you can see, it is easy to introduce subtle off by one errors in this code. With the invariants, not only can Dafny prove the code correct, but we can understand the operation of the code more easily ourselves.</p> <p><strong>Exercise 15.</strong> <em>Change the assignments in the body of <code>BinarySearch</code> to set <code>low</code> to <code>mid</code> or to set <code>high</code> to <code>mid - 1</code>. In each case, what goes wrong?</em></p> <div class="language-{.editonly} line-numbers-mode"><pre class="language-text"><code>predicate sorted(a: array&lt;int&gt;)
+   requires a != null
+   reads a
+{
+   forall j, k :: 0 &lt;= j &lt; k &lt; a.Length ==&gt; a[j] &lt;= a[k]
+}
+method BinarySearch(a: array&lt;int&gt;, value: int) returns (index: int)
+   requires a != null &amp;&amp; 0 &lt;= a.Length &amp;&amp; sorted(a)
+   ensures 0 &lt;= index ==&gt; index &lt; a.Length &amp;&amp; a[index] == value
+   ensures index &lt; 0 ==&gt; forall k :: 0 &lt;= k &lt; a.Length ==&gt; a[k] != value
+{
+   var low, high := 0, a.Length;
+   while low &lt; high
+      invariant 0 &lt;= low &lt;= high &lt;= a.Length
+      invariant forall i ::
+         0 &lt;= i &lt; a.Length &amp;&amp; !(low &lt;= i &lt; high) ==&gt; a[i] != value
+   {
+      var mid := (low + high) / 2;
+      if a[mid] &lt; value
+      {
+         low := mid + 1;
+      }
+      else if value &lt; a[mid]
+      {
+         high := mid;
+      }
+      else
+      {
+         return mid;
+      }
+   }
+   return -1;
+}
+method BinarySearch(a: array&lt;int&gt;, value: int) returns (index: int)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="conclusion"><a href="#conclusion" class="header-anchor">#</a> Conclusion</h3> <p>We’ve seen a whirlwind tour of the major features of Dafny, and used it for some interesting, if a little on the small side, examples of what Dafny can do. But to really take advantage of the power Dafny offers, one needs to plow ahead into the advanced topics: objects, sequences and sets, data structures, lemmas, etc. Now that you are familiar with the basics of Dafny, you can peruse the tutorials on each of these topics at your leisure. Each tutorial is designed to be a relatively self-contained guide to its topic, though some benefit from reading others beforehand. The examples are also a good place to look for model Dafny programs. Finally, the reference contains the gritty details of Dafny syntax and semantics, for when you just need to know what the disjoint set operator is (it’s <code>!!</code>, for those interested).</p> <p>Even if you do not use Dafny regularly, the idea of writing down exactly what it is that the code does in a precise way, and using this to prove code correct is a useful skill. Invariants, pre- and postconditions, and annotations are useful in debugging code, and also as documentation for future developers. When modifying or adding to a codebase, they confirm that the guarantees of existing code are not broken. They also ensure that APIs are used correctly, by formalizing behavior and requirements and enforcing correct usage. Reasoning from invariants, considering pre- and postconditions, and writing assertions to check assumptions are all general computer science skills that will benefit you no matter what language you work in.</p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/aaron-clou/dafnycommunity/edit/master/docs/80.语言/10.dafny-tutorials/00.Getting Started with Dafny A Guide.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022/03/26, 14:38:56</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/dafnycommunity/pages/fe5721/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">cheet</div></a> <a href="/dafnycommunity/pages/a9c4a5/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">Dafny type system</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/dafnycommunity/pages/fe5721/" class="prev">cheet</a></span> <span class="next"><a href="/dafnycommunity/pages/a9c4a5/">Dafny type system</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/dafnycommunity/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/dafnycommunity/pages/0978ce/"><div>
+            寻找最大和最小数
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>02</dd> <dt><a href="/dafnycommunity/pages/e3e481/"><div>
+            斐波那契数列
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>03</dd> <dt><a href="/dafnycommunity/pages/02fdef/"><div>
+            线性查询
+            <!----></div></a> <span class="date">04-06</span></dt></dl> <dl><dd></dd> <dt><a href="/dafnycommunity/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/Aaron-clou/dafnycommunity" title="Github" target="_blank" class="iconfont icon-github-fill"></a><a href="https://gitee.com/leo214/dafnycommunity" title="Gitee" target="_blank" class="iconfont icon-gitee2"></a><a href="1374921025@qq.com" title="Email" target="_blank" class="iconfont icon-email-fill"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2022-2022
+    <span>Li Jiahai | Dafny Community | 2022</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><!----><div id="tcomment"></div><div></div></div></div>
+    <script src="/dafnycommunity/assets/js/app.99d07194.js" defer></script><script src="/dafnycommunity/assets/js/2.ab4658c0.js" defer></script><script src="/dafnycommunity/assets/js/71.16ef2000.js" defer></script><script src="/dafnycommunity/assets/js/7.5451cfed.js" defer></script><script src="/dafnycommunity/assets/js/4.06497870.js" defer></script>
+  </body>
+</html>

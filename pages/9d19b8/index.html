@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模块 | Dafny</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/dafnycommunity/img/bgico2.ico">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3282046_1qux519eoim.css">
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.5.0/dist/twikoo.all.min.js"></script>
+    <meta name="description" content="Dafny中文社区">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="preload" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css" as="style"><link rel="preload" href="/dafnycommunity/assets/js/app.99d07194.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/2.ab4658c0.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/51.a1291856.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/7.5451cfed.js" as="script"><link rel="preload" href="/dafnycommunity/assets/js/4.06497870.js" as="script"><link rel="prefetch" href="/dafnycommunity/assets/js/10.ac38cab7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/11.38d5ee16.js"><link rel="prefetch" href="/dafnycommunity/assets/js/12.c434ce94.js"><link rel="prefetch" href="/dafnycommunity/assets/js/13.4e922264.js"><link rel="prefetch" href="/dafnycommunity/assets/js/14.db841cfa.js"><link rel="prefetch" href="/dafnycommunity/assets/js/15.b9c227cc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/16.41dadc32.js"><link rel="prefetch" href="/dafnycommunity/assets/js/17.48b5f1eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/18.ec254833.js"><link rel="prefetch" href="/dafnycommunity/assets/js/19.288ca382.js"><link rel="prefetch" href="/dafnycommunity/assets/js/20.cfeb5fdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/21.ce8ddc5a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/22.1b8c89f0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/23.cb062ace.js"><link rel="prefetch" href="/dafnycommunity/assets/js/24.ff271672.js"><link rel="prefetch" href="/dafnycommunity/assets/js/25.5541f3af.js"><link rel="prefetch" href="/dafnycommunity/assets/js/26.a1bbc4cb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/27.522d7884.js"><link rel="prefetch" href="/dafnycommunity/assets/js/28.9335c003.js"><link rel="prefetch" href="/dafnycommunity/assets/js/29.3fc0b07a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/3.ab8a97d8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/30.57708681.js"><link rel="prefetch" href="/dafnycommunity/assets/js/31.8571b949.js"><link rel="prefetch" href="/dafnycommunity/assets/js/32.f91be5de.js"><link rel="prefetch" href="/dafnycommunity/assets/js/33.8089c59b.js"><link rel="prefetch" href="/dafnycommunity/assets/js/34.874d0299.js"><link rel="prefetch" href="/dafnycommunity/assets/js/35.aff8adfd.js"><link rel="prefetch" href="/dafnycommunity/assets/js/36.ac78b86e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/37.3fae0334.js"><link rel="prefetch" href="/dafnycommunity/assets/js/38.3db4a8d6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/39.e585cc70.js"><link rel="prefetch" href="/dafnycommunity/assets/js/40.afcb8fbe.js"><link rel="prefetch" href="/dafnycommunity/assets/js/41.01f314da.js"><link rel="prefetch" href="/dafnycommunity/assets/js/42.8e4fe21d.js"><link rel="prefetch" href="/dafnycommunity/assets/js/43.571fb232.js"><link rel="prefetch" href="/dafnycommunity/assets/js/44.14aebad2.js"><link rel="prefetch" href="/dafnycommunity/assets/js/45.32f18970.js"><link rel="prefetch" href="/dafnycommunity/assets/js/46.ce0d522f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/47.0bd83351.js"><link rel="prefetch" href="/dafnycommunity/assets/js/48.648f667a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/49.83709ae0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/5.b8548e7f.js"><link rel="prefetch" href="/dafnycommunity/assets/js/50.060e0424.js"><link rel="prefetch" href="/dafnycommunity/assets/js/52.45f73497.js"><link rel="prefetch" href="/dafnycommunity/assets/js/53.525782ca.js"><link rel="prefetch" href="/dafnycommunity/assets/js/54.45a04a86.js"><link rel="prefetch" href="/dafnycommunity/assets/js/55.65a94ba0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/56.2d038113.js"><link rel="prefetch" href="/dafnycommunity/assets/js/57.579db650.js"><link rel="prefetch" href="/dafnycommunity/assets/js/58.832d4c89.js"><link rel="prefetch" href="/dafnycommunity/assets/js/59.13befb53.js"><link rel="prefetch" href="/dafnycommunity/assets/js/6.349bf431.js"><link rel="prefetch" href="/dafnycommunity/assets/js/60.41227bb1.js"><link rel="prefetch" href="/dafnycommunity/assets/js/61.1d1b92f4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/62.2cdbc236.js"><link rel="prefetch" href="/dafnycommunity/assets/js/63.83de9482.js"><link rel="prefetch" href="/dafnycommunity/assets/js/64.4ecd0d25.js"><link rel="prefetch" href="/dafnycommunity/assets/js/65.25118b81.js"><link rel="prefetch" href="/dafnycommunity/assets/js/66.cdab1b54.js"><link rel="prefetch" href="/dafnycommunity/assets/js/67.655e6e84.js"><link rel="prefetch" href="/dafnycommunity/assets/js/68.84effb44.js"><link rel="prefetch" href="/dafnycommunity/assets/js/69.8f07f81a.js"><link rel="prefetch" href="/dafnycommunity/assets/js/70.d9a299e6.js"><link rel="prefetch" href="/dafnycommunity/assets/js/71.16ef2000.js"><link rel="prefetch" href="/dafnycommunity/assets/js/72.8252acc5.js"><link rel="prefetch" href="/dafnycommunity/assets/js/73.f53e39bc.js"><link rel="prefetch" href="/dafnycommunity/assets/js/74.5ef910c4.js"><link rel="prefetch" href="/dafnycommunity/assets/js/75.72174d00.js"><link rel="prefetch" href="/dafnycommunity/assets/js/76.bebf75c9.js"><link rel="prefetch" href="/dafnycommunity/assets/js/77.b85547c7.js"><link rel="prefetch" href="/dafnycommunity/assets/js/78.a0a1f574.js"><link rel="prefetch" href="/dafnycommunity/assets/js/79.a731d645.js"><link rel="prefetch" href="/dafnycommunity/assets/js/8.522ce892.js"><link rel="prefetch" href="/dafnycommunity/assets/js/80.6e5b64b0.js"><link rel="prefetch" href="/dafnycommunity/assets/js/81.6e19e312.js"><link rel="prefetch" href="/dafnycommunity/assets/js/82.9244e788.js"><link rel="prefetch" href="/dafnycommunity/assets/js/83.f08c5aed.js"><link rel="prefetch" href="/dafnycommunity/assets/js/84.085ef3f8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/85.c41e6e0e.js"><link rel="prefetch" href="/dafnycommunity/assets/js/86.e3798708.js"><link rel="prefetch" href="/dafnycommunity/assets/js/87.fdac1c1c.js"><link rel="prefetch" href="/dafnycommunity/assets/js/88.665ac8c8.js"><link rel="prefetch" href="/dafnycommunity/assets/js/89.78dc55eb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/9.4d4f4bdb.js"><link rel="prefetch" href="/dafnycommunity/assets/js/90.4757b202.js"><link rel="prefetch" href="/dafnycommunity/assets/js/91.a0746cf2.js">
+    <link rel="stylesheet" href="/dafnycommunity/assets/css/0.styles.ecdcfe28.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dafnycommunity/" class="home-link router-link-active"><img src="/dafnycommunity/img/logo-2.png" alt="Dafny" class="logo"> <span class="site-name can-hide">Dafny</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" class="nav-link">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" aria-current="page" class="nav-link router-link-exact-active router-link-active">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://s1.ax1x.com/2022/04/01/qh3tDe.png"> <div class="blogger-info"><h3>Dafny</h3> <span>新一代验证语言</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/dafnycommunity/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="配置" class="dropdown-title"><a href="/dafnycommunity/peizhi/" class="link-title">配置</a> <span class="title" style="display:none;">配置</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>入门介绍</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/56e571/" class="nav-link">什么是dafny?</a></li></ul></li><li class="dropdown-item"><h4>用起来吧！</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/4fa796/" class="nav-link">安装</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/085606/" class="nav-link">快速上手</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/39fb20/" class="nav-link">可能遇到的问题?</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="指南" class="dropdown-title"><a href="/dafnycommunity/zhinan/" class="link-title">指南</a> <span class="title" style="display:none;">指南</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny快速入门</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/6e15a6/" class="nav-link">基础学习 Basic</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/eba166/" class="nav-link">方法 Method</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/83cdf9/" class="nav-link">关键字 Keyword</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/01d76e/" class="nav-link">函数 Function</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0fadc1/" class="nav-link">类 Class </a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a010ab/" class="nav-link">泛型 Generics</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/c4fda3/" class="nav-link">声明 Statement</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e8438e/" class="nav-link">表达式 Expression</a></li></ul></li><li class="dropdown-item"><h4>Dafny简单例子</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0978ce/" class="nav-link">寻找最大最小数和</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/e3e481/" class="nav-link">斐波那契数列</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/02fdef/" class="nav-link">线性查询</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9b332b/" class="nav-link">引理-计算序列非负元素个数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/3d1110/" class="nav-link">集合</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2146d4/" class="nav-link">终止</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="教程" class="dropdown-title"><a href="/dafnycommunity/jiaocheng/" class="link-title">教程</a> <span class="title" style="display:none;">教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Dafny指导</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/877eb3/" class="nav-link">介绍</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/bf40c0/" class="nav-link">方法 Methods</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/2e0c73/" class="nav-link">前置/后置条件 Pre/Postconditions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/36c1b4/" class="nav-link">断言 Assertions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a1d5a4/" class="nav-link">函数 Functions</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/d89435/" class="nav-link">循环不变体 Loop Invariants</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/828a83/" class="nav-link">数组 Arrays</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/17e8d1/" class="nav-link">量词(函数) Quantifiers</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cc01af/" class="nav-link">谓词(函数) Predicates</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/13bbcd/" class="nav-link">框架 Framing</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1319be/" class="nav-link">二分搜索 Binary Search</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/30a8c2/" class="nav-link">总结</a></li></ul></li><li class="dropdown-item"><h4>Dafny进阶语法</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/273cac/" class="nav-link">引理和归纳 Lemmas and Induction</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/9d19b8/" aria-current="page" class="nav-link router-link-exact-active router-link-active">模块 Modules</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/b9300a/" class="nav-link">集合 sets</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/cb3d21/" class="nav-link">序列 sequence</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fc6196/" class="nav-link">终止 Terminal</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/a2a107/" class="nav-link">值类型 Values Types</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源" class="dropdown-title"><a href="/dafnycommunity/ziyuan/" class="link-title">资源</a> <span class="title" style="display:none;">资源</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>实践探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/718207/" class="nav-link">自动归纳</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1f579f/" class="nav-link">自动调用引理</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/f6638c/" class="nav-link">定义、证明、算法正确性</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/1d2420/" class="nav-link">各种推导式</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/20c275/" class="nav-link">不同类型的证明</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/67167e/" class="nav-link">集合元素上的函数</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/be298d/" class="nav-link">在集合上的迭代</a></li></ul></li><li class="dropdown-item"><h4>常用工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/dafnycommunity/pages/8065fd/" class="nav-link">Type System</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/0f17ab/" class="nav-link">Style Guide</a></li><li class="dropdown-subitem"><a href="/dafnycommunity/pages/fe5721/" class="nav-link">Cheet Sheet</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/1b94a4/" class="nav-link">✨收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🏷️语言" class="dropdown-title"><!----> <span class="title" style="display:;">🏷️语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dafnycommunity/" class="nav-link">简体中文</a></li><li class="dropdown-item"><!----> <a href="/dafnycommunity/en-US/" class="nav-link">English</a></li></ul></div></div><div class="nav-item"><a href="/dafnycommunity/pages/caf1f9/" class="nav-link">💬社区留言板</a></div> <a href="https://github.com/aaron-clou/dafnycommunity" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Dafny教程</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Dafny进阶语法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dafnycommunity/pages/273cac/" class="sidebar-link">引理和归纳</a></li><li><a href="/dafnycommunity/pages/9d19b8/" aria-current="page" class="active sidebar-link">模块</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#介绍" class="sidebar-link">介绍</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#声明新模块" class="sidebar-link">声明新模块</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#导入和导出模块" class="sidebar-link">导入和导出模块</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/9d19b8/#导出集合" class="sidebar-link">导出集合</a></li><li class="sidebar-sub-header level3"><a href="/dafnycommunity/pages/9d19b8/#导出一致性" class="sidebar-link">导出一致性</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#开放模板" class="sidebar-link">开放模板</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#抽象模块" class="sidebar-link">抽象模块</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#模块排序和依赖关系" class="sidebar-link">模块排序和依赖关系</a></li><li class="sidebar-sub-header level2"><a href="/dafnycommunity/pages/9d19b8/#名字分解" class="sidebar-link">名字分解</a></li></ul></li><li><a href="/dafnycommunity/pages/b9300a/" class="sidebar-link">集合</a></li><li><a href="/dafnycommunity/pages/cb3d21/" class="sidebar-link">序列</a></li><li><a href="/dafnycommunity/pages/fc6196/" class="sidebar-link">终止</a></li><li><a href="/dafnycommunity/pages/a2a107/" class="sidebar-link">值类型</a></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-0c557b5e><div class="articleInfo" data-v-0c557b5e><ul class="breadcrumbs" data-v-0c557b5e><li data-v-0c557b5e><a href="/dafnycommunity/" title="首页" class="iconfont icon-home router-link-active" data-v-0c557b5e></a></li> <li data-v-0c557b5e><a href="/dafnycommunity/jiaocheng/#教程" data-v-0c557b5e>教程</a></li><li data-v-0c557b5e><a href="/dafnycommunity/jiaocheng/#Dafny进阶语法" data-v-0c557b5e>Dafny进阶语法</a></li></ul> <div class="info" data-v-0c557b5e><div title="作者" class="author iconfont icon-touxiang" data-v-0c557b5e><a href="https://github.com/Aaron-clou" target="_blank" title="作者" class="beLink" data-v-0c557b5e>lijiahai</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-0c557b5e><a href="javascript:;" data-v-0c557b5e>2022-03-26</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">模块<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="模块"><a href="#模块" class="header-anchor">#</a> 模块</h1> <h2 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h2> <p>将程序分解成多个部分来构造它是创建大型程序的重要部分。在Dafny中，这是通过模块实现的。模块提供了一种将相关类型、类、方法、函数和其他模块组合在一起的方法，以及控制声明的作用域。模块可以相互导入以实现代码重用，并且可以对模块进行抽象以将实现与接口分离。</p> <h2 id="声明新模块"><a href="#声明新模块" class="header-anchor">#</a> 声明新模块</h2> <p>Declaring New Modules声明新模块
+一个新模块是用module关键字声明的，后面跟着新模块的名字，还有一对括住模块主体的花括号({}):</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>模块主体可以包含任何可以放在顶层的内容。这包括类、数据类型、类型、方法、函数等。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  class C {
+    var f: int;
+    method m()
+  }
+  datatype Option = A(int) | B(int)
+  type T
+  method m()
+  function f(): int
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>你也可以将一个模块嵌套到另一个模块中:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  module Helpers {
+    class C {
+      method doIt()
+      var f: int;
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>然后，你可以在Mod模块中引用Helpers模块的成员，方法是在它们前面加上&quot; Helpers &quot;。例如:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  module Helpers {
+    class C {
+      method doIt()
+      var f: int;
+    }
+  }
+  method m() {
+    var x := new Helpers.C;
+    x.doIt();
+    x.f := 4;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  module Helpers { ... }
+  method m() {
+    var x := new Helpers.C;
+    x.doIt();
+    x.f := 4;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>在模块级别定义的方法和函数可以像类一样使用，只是模块名作为前缀。它们也可以在同一个模块中的类的方法和函数中使用。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  module Helpers {
+    function method addOne(n: nat): nat {
+      n + 1
+    }
+  }
+  method m() {
+    var x := 5;
+    x := Helpers.addOne(x); // x is now 6
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>默认情况下，函数(和谓词)的定义在定义它们的模块外部公开。这可以通过导出集进行更精确的控制，我们将在下一节中看到。所以增加</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Mod {
+  module Helpers {
+    function method addOne(n: nat): nat {
+      n + 1
+    }
+  }
+  method m() {
+    var x := 5;
+    x := Helpers.addOne(x);
+    assert x == 6; // this will succeed
+  }
+}
+
+  assert x == 6;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>以m()结尾将进行验证。</p> <h2 id="导入和导出模块"><a href="#导入和导出模块" class="header-anchor">#</a> 导入和导出模块</h2> <p>声明新的子模块是有用的，但有时您希望引用来自现有模块的内容，比如库。在这种情况下，您可以将一个模块导入另一个模块。这是通过<code>import</code>关键字完成的，有几种不同的形式，每一种都有不同的含义。最简单的形式是具体的导入,导入形式<code>A = B</code>这个模块声明创建一个引用B(必须已经存在),并结合新名称注意这个新名称,例如 A,,只有绑定模块包含导入声明;它不会创建全局别名。例如，如果helper是在Mod之外定义的，那么我们可以导入它:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  function method addOne(n: nat): nat
+  {
+    n + 1
+  }
+}
+module Mod {
+  import A = Helpers
+  method m() {
+    assert A.addOne(5) == 6;
+  }
+}
+
+module Helpers {
+  ...
+}
+module Mod {
+  import A = Helpers
+  method m() {
+    assert A.addOne(5) == 6;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>注意，在m()中，我们必须使用<code>A</code>而不是<code>helper</code>，因为我们将它绑定到一个不同的名称。名称Helpers在m()中不可用，因为只有在Mod中绑定的名称才可用。为了使用来自另一个模块的成员，它要么必须用<code>module</code>声明，要么用import导入。</p> <p>不过，如果我们不想给Helpers起个新名字，也不必。如果需要，可以编写<code>import Helpers = Helpers</code>, Dafny甚至为这种行为提供了简便的<code>import Helpers</code>。您不能同时绑定两个具有相同名称的模块，因此有时必须使用= 版本号以确保名称不会冲突。</p> <h3 id="导出集合"><a href="#导出集合" class="header-anchor">#</a> 导出集合</h3> <p>默认情况下，导入import将允许访问被导入模块的所有声明(及其定义)。为了更精确地控制这一点，我们可以使用导出export集。每个导出export集可能有当前模块的声明列表，以<code>provides</code>或<code>reveals</code>的形式给出。没有名称的导出export被认为是该模块的默认导出，并且在没有显式命名集合时使用。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export Spec provides addOne, addOne_result
+  export Body reveals addOne
+  export extends Spec
+  function method addOne(n: nat): nat
+  {
+    n + 1
+  }
+  lemma addOne_result(n : nat)
+     ensures addOne(n) == n + 1
+  { }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>在这个例子中，我们声明了3个导出集，Spec 集授予了对addOne函数的访问权，但是由于它是用<code>provides</code>声明的，所以它没有授予对其定义的访问权。Body导出集将<code>addOne</code>声明为<code>reveals</code>，现在可以访问addOne的bdoy部分。最后，默认导出作为Spec的扩展extends给出，这表明它只是给出Spec所声明的所有导出。</p> <p>我们现在可以在导入helper时选择这些导出集中的任何一个，并获得它的不同视图。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export Spec provides addOne, addOne_result
+  export Body reveals addOne
+  export extends Spec
+  function method addOne(n: nat): nat
+  {
+    n + 1
+  }
+  lemma addOne_result(n: nat)
+     ensures addOne(n) == n + 1
+  { }
+}
+
+module Mod1 {
+  import A = Helpers`Body
+  method m() {
+    assert A.addOne(5) == 6; // succeeds, we have access to addOne's body
+  }
+  method m2() {
+    //A.addOne_result(5); // error, addOne_result is not exported from Body
+    assert A.addOne(5) == 6;
+  }
+}
+module Mod2 {
+  import A = Helpers`Spec
+  method m() {
+    assert A.addOne(5) == 6; // fails, we don't have addOne's body
+  }
+  method m2() {
+    A.addOne_result(5);
+    assert A.addOne(5) == 6; // succeeds due to result from addOne_result
+  }
+}
+module Mod3 {
+  import A = Helpers
+  method m() {
+    assert A.addOne(5) == 6; // fails, we don't have addOne's body
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>我们还可以使用导出集<code>export sets</code> 来控制可用的类型定义。所有类型声明(如<code>newtype</code>、<code>type</code>、<code>datatype</code>等)都可以导出为提供<code>provides</code>或显示。在前一种情况下，导入该类型的模块将其视为不透明类型。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export provides f, T
+  export Body reveals f, T
+  type T = int
+  function f(): T { 0 }
+}
+module Mod {
+  import A = Helpers
+  function g(): A.T { 0 } // error, T is not known to be int, or even numeric
+  function h(): A.T { A.f() } // okay
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>一旦导入export了显示<code>reveals</code>以前不透明类型的导出，则已知对它的所有现有使用都是内部类型。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export provides f, T
+  export Body reveals f, T
+  type T = int
+  function f(): T { 0 }
+}
+module Mod {
+  import A = Helpers
+  function h(): A.T { A.f() }
+}
+
+module Mod2 {
+  import M = Mod
+  import A = Helpers`Body
+  function j(): int
+    ensures j() == 0 //succeeds
+  { M.h() }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>作为一种方便的简写方式，特殊标识符“*”可以在提供<code>provides</code>或揭示<code>reveals</code>之后给出，以表示所有声明都应该提供或揭示。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module A {
+   export All reveals * // reveals T, f, g
+   export Spec provides * // provides T, f, g
+   export Some provides * reveals g // provides T, f reveals g
+   type T = int
+   function f(): T { 0 }
+   function g(): int { 2 }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>我们还可以一次提供多个导出来创建一个聚合导入(<code>aggregate import</code>).</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module A {
+  export Justf reveals f
+  export JustT reveals T
+  type T = int
+  function f(): int { 0 }
+}
+module B {
+  import A`{Justf,JustT}
+  function g(): A.T { A.f() }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="导出一致性"><a href="#导出一致性" class="header-anchor">#</a> 导出一致性</h3> <p>导出集(<code>export set</code>)必须始终呈现模块的一致视图:任何出现在导出声明中的内容都必须被导出。回顾前面的示例，我们不能创建一个既显示<code>f(reveals f)</code>又显示T的导出集<code>export set</code>。原因很简单，我们将创建一个类型约束0:T，如果T是不透明的，则无法解决这个约束。类似地，如果不提供T，则不能创建提供provides或揭示<code>f reveals f</code>的导出集。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export provides f, T // good
+  export Body reveals f, T // good
+  export BadSpec reveals f, provides T // bad
+  export BadSpec2 provides f // bad
+  type T = int
+  function f(): T { 0 }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>由于我们可以定义同时包含导入import和导出export声明的模块，因此我们可能需要从外部模块导出声明，以创建一致的导出集<code>export set</code>。外部模块的声明不能直接包含在导出export中，但是提供它们的导入import可以。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export provides f, T
+  type T = int
+  function f(): T { 0 }
+}
+module Mod {
+  export Try1 reveals h // error
+  export Try2 reveals h, provides A.f, A.T // error, can't provide these directly
+  export reveals h, provides A // good
+  import A = Helpers
+  function h(): A.T { A.f() }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>当导入Mod时，我们现在也获得了对其导入<code>a import a</code>中所提供的内容的合格访问权。我们也可以选择直接导入这些内容，给它们一个更短的名称。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  export provides f, T
+  type T = int
+  function f(): T { 0 }
+}
+module Mod {
+  export reveals h, provides A
+  import A = Helpers
+  function h(): A.T { A.f() }
+}
+
+module Mod2 {
+  import M = Mod
+  import MA = M.A
+  function j(): M.A.T { M.h() }
+  function k(): MA.T { j() }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="开放模板"><a href="#开放模板" class="header-anchor">#</a> 开放模板</h2> <p>有时，为导入的模块的成员加上名称前缀是乏味且难看的，即使您在导入时选择了一个简短的名称。在这种情况下，您可以将模块导入为“<code>opened</code>”，这将使其所有成员都可用，而无需添加模块名称。opened关键字必须紧跟在import之后，如果它存在的话。例如，我们可以将前面的addOne示例写为:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  function method addOne(n: nat): nat
+  {
+    n + 1
+  }
+}
+
+module Mod {
+  import opened Helpers
+  method m() {
+    assert addOne(5) == 6;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>当打开模块时，新绑定的成员将具有较低的优先级，因此它们将被局部定义隐藏。这意味着，如果您定义了一个名为addOne的局部函数，则helper中的函数将不再以该名称提供。当模块被打开时，原始的名称绑定仍然存在，所以您总是可以使用绑定的名称来获取任何隐藏的内容。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Helpers {
+  function method addOne(n: nat): nat
+  {
+    n + 1
+  }
+}
+module Mod {
+  import opened Helpers
+  function addOne(n: nat): nat {
+    n + 2
+  }
+  method m() {
+    assert addOne(5) == 6; // this is now false,
+                           // as this is the function just defined
+    assert Helpers.addOne(5) == 6; // this is still true
+  }
+}
+
+module Mod {
+  import opened Helpers
+  function addOne(n: nat): nat {
+    n + 2
+  }
+  method m() {
+    assert addOne(5) == 6; // this is now false,
+                           // as this is the function just defined
+    assert Helpers.addOne(5) == 6; // this is still true
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>如果打开两个都声明具有相同名称的成员的模块，那么在没有模块前缀的情况下，这两个成员都不能被引用，因为哪个成员的含义是不明确的。不过，只要您不试图使用具有共同名称的成员，仅仅打开这两个模块就不会出现错误。opened关键字可以用于任何类型的导入import声明，包括模块抽象形式。</p> <h2 id="抽象模块"><a href="#抽象模块" class="header-anchor">#</a> 抽象模块</h2> <p>有时，使用特定的实现是不必要的;相反，所需要的只是一个实现某些接口的模块。在这种情况下，您可以使用抽象模块导入。在Dafny,这是写import A : B.。这意味着绑定名称A,而是得到确切的模块B,你得到任何模块的细化B .通常情况下,模块B可能抽象类型定义,包含脱胎方法的类,或者直接不适合使用。由于细化的定义方式，B的任何细化都可以安全地使用。例如，如果我们以:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>abstract module Interface {
+  function method addSome(n: nat): nat
+    ensures addSome(n) &gt; n
+}
+abstract module Mod {
+  import A : Interface
+  method m() {
+    assert 6 &lt;= A.addSome(5);
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>如果我们知道addSome实际上正好加了1，我们就可以更精确了。下面的模块具有这种行为。此外，后置条件更强，因此这实际上是对Interface模块的改进。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>module Implementation refines Interface {
+  function method addSome(n: nat): nat
+    ensures addSome(n) == n + 1
+  {
+    n + 1
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>然后，我们可以在一个新的模块中用Implementation代替A，通过声明Mod的精炼，它定义了A的Implementation。</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>abstract module Interface {
+  function method addSome(n: nat): nat
+    ensures addSome(n) &gt; n
+}
+abstract module Mod {
+  import A : Interface
+  method m() {
+    assert 6 &lt;= A.addSome(5);
+  }
+}
+module Implementation refines Interface {
+  function method addSome(n: nat): nat
+    ensures addSome(n) == n + 1
+  {
+    n + 1
+  }
+}
+module Mod2 refines Mod {
+  import A = Implementation
+  method m() {
+    ...;
+    // this is now provable, because we know A is Implementation
+    assert 6 == A.addSome(5);
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>当你将一个抽象导入细化到一个具体的导入时，具体模块必须是抽象模块的显式细化(例如，用refines声明)。</p> <h2 id="模块排序和依赖关系"><a href="#模块排序和依赖关系" class="header-anchor">#</a> 模块排序和依赖关系</h2> <p>Dafny并不特别关注模块出现的顺序，但它们必须遵循一些规则才能形成良好的结构。作为一个经验法则，应该有一种方法来对程序中的模块进行排序，以便每个模块只引用源文本中在它之前定义的东西。这并不意味着模块必须按这个顺序排列。如果你没有做任何循环引用，Dafny会帮你弄清楚顺序的。例如，这显然毫无意义:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>import A = B
+import B = A
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>你可以在顶层有import语句，也可以导入在同一层定义的模块:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>import A = B
+method m() {
+  A.whatever();
+}
+module B {
+  method whatever() {}
+}
+
+import A = B
+method m() {
+  A.whatever();
+}
+module B { ... }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>在本例中，所有内容都定义得很好，因为我们可以先放B，然后是A导入，最后是m()。如果没有顺序，那么Dafny将给出一个错误，抱怨循环依赖关系。
+请注意，当重新排列模块和导入时，它们必须保持在相同的包含模块中，这就不允许一些病态的模块结构。此外，导入和子模块总是被认为是最前面的，即使在顶层也是如此。这意味着以下内容不是很好的格式:</p> <div class="language-dafny line-numbers-mode"><pre class="language-text"><code>method doIt() { }
+module M {
+  method m() {
+    doIt();
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>因为模块M必须出现在任何其他类型的成员之前，比如方法。要像这样定义全局函数，您可以将它们放在一个模块(比如称为Globals)中，并将其打开到任何需要其功能的模块中。最后，如果您通过路径导入，例如<code>import a = B.C</code>那么这将创建a对B的依赖关系，因为我们需要知道B是什么(它是抽象的还是具体的，还是细化的?)</p> <h2 id="名字分解"><a href="#名字分解" class="header-anchor">#</a> 名字分解</h2> <p>(待办事项:以下内容已在Dafny更改。这里的描述应该改变以反映新的规则。)</p> <p>当Dafny看到像A.B.C这样的东西时，它怎么知道每个部分指的是什么?Dafny用来确定这样的标识符序列所引用的是名称解析。虽然规则可能看起来很复杂，但它们通常都符合您的预期。Dafny首先查找初始标识符。根据第一个标识符引用的内容，将在适当的上下文中查找标识符的其余部分。具体规则如下:
+局部变量、参数和绑定变量。这些是x y和i在<code>var x;，... returns (y: int)，forall i :: ...</code>
+数据类型和模块名(如果这不是标识符的唯一部分)。类允许以这种方式访问它们的静态成员，数据类型允许访问它们的构造函数。模块允许像这样引用它们的任何成员
+构造函数名称(如果没有歧义)。任何不需要限定的数据类型(因此数据类型名称本身不需要前缀)，以及具有唯一命名构造函数的数据类型，都可以通过其名称引用。所以如果<code>datatype List = Cons(List) | Nil</code>是唯一声明 Cons和Nil构造函数的数据类型，那么你可以写<code>Cons(Cons(Nil))</code>。如果构造函数名不是唯一的，则需要在其前面加上数据类型的名称(例如<code>List.Cons(List.Nil)</code>)。这是每个构造函数完成的，而不是每个数据类型。
+当前类的字段、函数和方法(如果在静态上下文中，则只允许静态方法和函数)。您可以这样引用当前类的字段this.f或者f，当然假设f没有被上面的任何一个隐藏。如果需要，您总是可以加上前缀this，但不能隐藏它。(注意，名称是数字字符串的字段必须总是有一些前缀。)
+封闭模块中的静态函数和方法。注意，这只引用在模块级声明的函数和方法，而不是命名类的静态成员。
+打开的模块在每一层处理，在当前模块的声明之后。打开的模块只影响步骤2、3和5。如果发现有歧义的名称，将生成一个错误，而不是继续沿着列表向下。在第一个标识符之后，规则基本上是相同的，除了在新的上下文中。例如，如果第一个标识符是一个模块，那么下一个标识符将查看该模块。打开的模块只适用于它被打开的模块。在查找另一个模块时，只考虑在该模块中显式声明的内容。</p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/aaron-clou/dafnycommunity/edit/master/docs/30.教程/10.Dafny进阶语法/05.模块.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022/03/26, 19:35:15</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/dafnycommunity/pages/273cac/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">引理和归纳</div></a> <a href="/dafnycommunity/pages/b9300a/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">集合</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/dafnycommunity/pages/273cac/" class="prev">引理和归纳</a></span> <span class="next"><a href="/dafnycommunity/pages/b9300a/">集合</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/dafnycommunity/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/dafnycommunity/pages/0978ce/"><div>
+            寻找最大和最小数
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>02</dd> <dt><a href="/dafnycommunity/pages/e3e481/"><div>
+            斐波那契数列
+            <!----></div></a> <span class="date">04-06</span></dt></dl><dl><dd>03</dd> <dt><a href="/dafnycommunity/pages/02fdef/"><div>
+            线性查询
+            <!----></div></a> <span class="date">04-06</span></dt></dl> <dl><dd></dd> <dt><a href="/dafnycommunity/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/Aaron-clou/dafnycommunity" title="Github" target="_blank" class="iconfont icon-github-fill"></a><a href="https://gitee.com/leo214/dafnycommunity" title="Gitee" target="_blank" class="iconfont icon-gitee2"></a><a href="1374921025@qq.com" title="Email" target="_blank" class="iconfont icon-email-fill"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2022-2022
+    <span>Li Jiahai | Dafny Community | 2022</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <!----></div><div class="global-ui"><!----><div id="tcomment"></div><div></div></div></div>
+    <script src="/dafnycommunity/assets/js/app.99d07194.js" defer></script><script src="/dafnycommunity/assets/js/2.ab4658c0.js" defer></script><script src="/dafnycommunity/assets/js/51.a1291856.js" defer></script><script src="/dafnycommunity/assets/js/7.5451cfed.js" defer></script><script src="/dafnycommunity/assets/js/4.06497870.js" defer></script>
+  </body>
+</html>
